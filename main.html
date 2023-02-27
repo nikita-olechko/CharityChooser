@@ -19,9 +19,12 @@
     </script>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="filter.js"></script>
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./try.css">
+    <link rel="stylesheet" href="./filter.css">
 </head>
 
 <body>
@@ -30,7 +33,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#" style="color:green">
                 <b>CharityChooser</b>
-                </a>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -44,23 +47,49 @@
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light" style="background-color: rgb(113, 161, 108)" type="submit">Search</button>
+                    <button class="btn btn-outline-light" style="background-color: rgb(113, 161, 108)"
+                        type="submit">Search</button>
                 </form>
             </div>
         </div>
     </nav>
-        <br>
-      <!-- charity cards-->
-      <div class="charity_card">
-          <div class="card mb-4" style="max-width: 540px;">
+    <br>
+
+
+
+        <div class="container-fluid flex-container">
+            <div class="row">
+                <div class="col-md padding-right">
+                    <button id="filter-button" class="card col-md">Filter</button>
+                    <div id="filter-popup" style="display: none;">
+                        <label><input type="checkbox" name="filter1" value="1"> Filter 1</label>
+                        <label><input type="checkbox" name="filter2" value="2"> Filter 2</label>
+                        <label><input type="checkbox" name="filter3" value="3"> Filter 3</label>
+                    </div>
+                </div>
+                <div id="filtered-items">
+                    <!-- Charity Cards will go here -->
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    <!-- charity cards-->
+    <div class="charity_card">
+        <div class="card mb-4" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="https://images.unsplash.com/photo-1617450365226-9bf28c04e130?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" class="img-fluid rounded-start" alt="...">
+                    <img src="https://images.unsplash.com/photo-1617450365226-9bf28c04e130?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                        class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">Charity 1</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
                         <a href="#" class="btn btn-success">See more</a>
                     </div>
                 </div>
@@ -73,49 +102,53 @@
         <div class="card mb-4" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="https://images.unsplash.com/photo-1608686207856-001b95cf60ca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80" class="img-fluid rounded-start" alt="...">
+                    <img src="https://images.unsplash.com/photo-1608686207856-001b95cf60ca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80"
+                        class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">Charity 2</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
                         <a href="#" class="btn btn-success">See more</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-        
-    <div class="charity_card">
-      <div class="card mb-4" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="https://plus.unsplash.com/premium_photo-1663089162887-403fb53108cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Charity 3</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <a href="#" class="btn btn-success">See more</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
 
-      <!--footer-->
-      <!-- <footer class="fixed-bottom py-3 bg-info">
+    <div class="charity_card">
+        <div class="card mb-4" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="https://plus.unsplash.com/premium_photo-1663089162887-403fb53108cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                        class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Charity 3</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <a href="#" class="btn btn-success">See more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--footer-->
+    <!-- <footer class="fixed-bottom py-3 bg-info">
         <div class="container">
             My Padded Blue Footer
         </div>
 </footer> -->
-<footer class="navbar justify-content-evenly bg-info fixed-bottom">
-    <div class="container py-2">
-    <span class="material-icons">favorite</span>
-    <span class="material-icons">home</span>
-    <span class="material-icons">map</span>
-    </div>
- </footer>
+    <footer class="navbar justify-content-evenly bg-info fixed-bottom">
+        <div class="container py-2">
+            <span class="material-icons">favorite</span>
+            <span class="material-icons">home</span>
+            <span class="material-icons">map</span>
+        </div>
+    </footer>
 </body>
 
 </html>
