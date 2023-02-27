@@ -68,6 +68,10 @@
     padding-bottom: 10px;
 }
 
+.padding-top-first-card {
+    padding-top: 15px;
+}
+
 .card_filter {
     display: flex;
     position: relative;
@@ -77,4 +81,8 @@
     padding: 10px;
     flex-direction: column;
     border-radius: 1rem;
+}
+
+#filter-button:hover {
+    background-color: rgb(29, 121, 78);
 }
