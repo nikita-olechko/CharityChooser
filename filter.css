@@ -36,13 +36,14 @@
     /* width: 50%; */
 }
 
-.center {
-    width: 200px;
-    height: 200px;
+.center-filter {
+    width: 50%;
+    /* height: 200px; */
     position: fixed;
     /* background-color: blue; */
     top: 70px;
-    left: 45%;
+    left: 25%;
+    right: 25%;
     /* margin-top: -100px;
     margin-left: -100px; */
 }
@@ -84,6 +85,11 @@
     padding-top: 15px;
 }
 
+.padding-top-bot {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 .card_filter {
     display: flex;
     position: relative;
@@ -101,4 +107,8 @@
 
 .z-index-filter-box {
     z-index: 9;
+}
+
+.padding-top {
+    padding-top: 2px;
 }
