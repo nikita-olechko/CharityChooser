@@ -27,12 +27,24 @@
 
 .filter-popup {
     display: none;
-    position: absolute;
+    position: relative;
     z-index: 1;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     padding: 10px;
     padding-top: 0;
+    /* width: 50%; */
+}
+
+.center {
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    /* background-color: blue; */
+    top: 70px;
+    left: 45%;
+    /* margin-top: -100px;
+    margin-left: -100px; */
 }
 
 .filter-row {
@@ -85,4 +97,8 @@
 
 #filter-button:hover {
     background-color: rgb(29, 121, 78);
+}
+
+.z-index-filter-box {
+    z-index: 9;
 }
