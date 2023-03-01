@@ -46,3 +46,7 @@ a {
     margin-top: 20px;
 }
 
+
+.btn:hover {
+    cursor: pointer;
+}
