@@ -1,7 +1,7 @@
 
 
 .btn {
-    background-color: rgb(222, 222, 222);
+    background-color: rgb(219, 219, 219);
     border: none;
 }
 
@@ -45,7 +45,6 @@ a {
 #filtered-items {
     margin-top: 20px;
 }
-
 
 .btn:hover {
     cursor: pointer;
