@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+.detail {
+  /* background-color: rgb(242, 242, 242); */
+  margin: 25px;
+  padding: 20px;
+  /* height: 450px; */
+  /* overflow-y: auto; */
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px 0px rgba(151, 151, 151, 0.35);
+  /* border-top: 1px solid gray; */
+  
+}
+
+.cardy {
+  max-width: 100%;
+}
+
+img {
+  border-radius: 10px;
+}
+
+.listy {
+  height: 166.31px;
+  overflow-y: auto;
+}
+
+h2 {
+  color: green;
+  font-weight: bold;
+}
+
+.donate {
+  background-color: green !important;
+    color: white;
+  border-radius: 30px;
+  font-weight: bold;
+}
+
+.donate:hover {
+    color: green;
+    background-color: white !important;
+    border: 2px solid green;
+}
