@@ -107,8 +107,14 @@
 
 .z-index-filter-box {
     z-index: 9;
+    transform: translateX(50px, 50px);
 }
 
 .padding-top {
     padding-top: 2px;
+}
+
+.margin-filter {
+    margin-top: 70px;
+    translate: 20px;
 }
