@@ -2,67 +2,63 @@
 <html lang="en">
 
 <head>
-    <title>My BCIT Project</title>
-    <meta name="comp1800 template" content="My 1800 App">
+  <title>My BCIT Project</title>
+  <meta name="comp1800 template" content="My 1800 App">
 
-    <!-- Required meta tags randomcomment -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Required meta tags randomcomment -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Other libraries go here -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    </link>
-    <script src="https://kit.fontawesome.com/262aa8bad2.js" crossorigin="anonymous"></script>
-    <!-- Boostrap Library JS CDN  go here -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  <!-- Boostrap Library JS CDN  go here -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+  <!-------------------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-    <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./try.css">
+  <!-- Other libraries go here -->
+  <script src="https://kit.fontawesome.com/262aa8bad2.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- js functions of your own -->
+  <script src="./scripts/firebaseAPI_DTC_16.js"></script>
+  <script src="./scripts/skeleton.js"></script>
+
+  <!-- Link to styles of your own -->
+<link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
-    <!-- top nav bar-->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="main.html" style="color:green">
-                <b>CharityChooser</b>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="map.html">MAP</a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light" style="background-color: rgb(113, 161, 108)" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="container border" style="margin-top: 15px;">
-      <div class="row justify-content-center">
-        <div class="col" style="padding: 1rem; background-color: rgb(27, 158, 75);
+  <!-- top nav bar-->
+  <nav id="navbarPlaceholder"></nav>
+
+  <!-- user profile -->
+  <div class="container border" style="margin-top: 15px;">
+    <div class="row justify-content-center">
+      <div class="col" style="padding: 1rem; background-color: rgb(27, 158, 75);
         border: 2px solid #fff; color: #fff;">
         <i class="fa-solid fa-user fa-8x d-flex justify-content-center"></i>
-        </div>
       </div>
-      <div class="row justify-content-center">
-        <div class="col"><h3 class="d-flex justify-content-center">Hello Username</h3>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col">
+        <h3 class="d-flex justify-content-center">Hello Username</h3>
       </div>
       <div class="row">
-        <div class="col col-auto" style="padding: 1rem;"><button class="btn btn-outline-light" style="border: solid 1px black; background-color: rgb(27, 158, 75);" type="button">Edit Profile</button></div>
+        <div class="col col-auto" style="padding: 1rem;"><button class="btn btn-outline-light"
+            style="border: solid 1px black; background-color: rgb(27, 158, 75);" type="button">Edit Profile</button>
+        </div>
       </div>
       <div class="row">
         <div class="col col-auto" style="padding: 1rem;">
@@ -77,25 +73,22 @@
       <div class="row">
         <div class="col col-auto" style="padding: 1rem;">
           <i class="fa-solid fa-credit-card">&nbsp&nbsp payment-method</i>
-      </div>
-      <div class="row">
-        <div class="col col-auto" style="padding: 1rem;">
-          <i class="fa-solid fa-history">&nbsp&nbsp donation-history</i>
+        </div>
+        <div class="row">
+          <div class="col col-auto" style="padding: 1rem;">
+            <i class="fa-solid fa-history">&nbsp&nbsp donation-history</i>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="row justify-content-center">
-      <div class="col col-auto" style="padding: 0.5rem"><button class="btn btn-outline-light" style="background-color: rgb(27, 158, 75); border: solid 1px black;" type="submit">Log Out</button>
-    </div>
+      <div class="row justify-content-center">
+        <div class="col col-auto" style="padding: 0.5rem"><button class="btn btn-outline-light"
+            style="background-color: rgb(27, 158, 75); border: solid 1px black;" type="submit">Log Out</button>
+        </div>
 
-<footer class="navbar justify-content-evenly bg-info fixed-bottom">
-    <div class="container py-2">
-    <span class="material-icons">favorite</span>
-    <span class="material-icons">home</span>
-    <span class="material-icons">map</span>
-    </div>
- </footer>
+
+        <!-- footer -->
+        <nav id="footerPlaceholder"></nav>
 </body>
 
 </html>
