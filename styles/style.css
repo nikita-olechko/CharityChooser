@@ -2,9 +2,15 @@
     box-sizing: border-box;
 }
 
-body {
+
+html {
     position: relative;
     min-height: 100%;
+    padding-bottom: 160px;
+}
+
+body {
+    margin-bottom: 160px;
 }
 
 .btn {
@@ -104,6 +110,9 @@ a:hover {
 
 footer {
     color: #2ca440;
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
 }
 
 @media only screen and (max-width: 768px) {
