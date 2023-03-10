@@ -35,7 +35,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
 
-
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/filter.css">
@@ -137,7 +136,7 @@
 
     <!-- charity cards-->
     <div class="container">
-        <h2 style="text-align: center;">Most popular charities</h2>
+        <h2 style="text-align: center;"><br>Most popular charities<br></h2>
         <!-- Here is the container for cards  -->
         <div class="container">
             <div id="charities-go-here" class="row row-cols-auto">
@@ -145,22 +144,21 @@
         </div>
     </div>
 
-    <template id="charityCardTemplate">
-        <div class="card py-2 mx-2" style="width: 18rem">
-            <img class="card-image card-img-top" src="..." alt="..." />
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <br />
-                <p class="card-text">
-                    Short description about this charity
-                </p>
-                <a class="btn btn-primary card-href">Read more</a>
+    <template id="charityCardTemplate" class="cardy">
+        <div class="col-md-4">
+            <div class="card shadow py-2 mx-2" style="width: 20rem">
+                <img class="card-image card-img-top" src="..." alt="..." />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Card title</h5>
+                    <br />
+                    <p class="card-text">
+                        Short description about this charity
+                    </p>
+                    <a class="button btn btn-success card-href">Read more</a>
+                </div>
             </div>
         </div>
-    </template>
-
-    <!-- <a href="#" class="btn btn-success">See more</a> -->
-
+    </template>>
     <br><br><br>
 
     <!--footer-->
