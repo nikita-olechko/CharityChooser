@@ -1,16 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 160px;
+}
+
+body {
+  margin-bottom: 160px;
+}
+
 .btn {
   background-color: rgb(219, 219, 219);
   border: none;
 }
 
 .button {
-    background-color: white;
-    color: green;
-    border: solid 1px green;
+  background-color: white;
+  color: green;
+  border: solid 1px green;
 }
 
 .btn-outline-light {
   background-color: rgb(30, 171, 105);
+  background-color: #2ca440;
 }
 
 .navbar {
@@ -91,6 +106,13 @@ a {
 
 a:hover {
   color: black;
+}
+
+footer {
+  color: #2ca440;
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
 }
 
 @media only screen and (max-width: 768px) {
