@@ -24,6 +24,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
@@ -33,11 +34,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
-    <!-- js functions of your own -->
-    <script src="./scripts/firebaseAPI_DTC_16.js"></script>
-    <script src="./scripts/main.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/filter.js"></script>
 
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
@@ -47,7 +43,6 @@
 <body>
     <!-- top nav bar-->
     <nav id="navbarPlaceholder"></nav>
-    <br>
 
 
     <!-- filter -->
@@ -140,68 +135,40 @@
 
 
     <!-- charity cards-->
-    <div class="charity_card padding-top-first-card">
-        <div class="card mb-4" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="https://images.unsplash.com/photo-1617450365226-9bf28c04e130?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                        class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Charity 1</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                        <a href="#" class="btn btn-success">See more</a>
-                    </div>
-                </div>
+    <div class="container">
+        <h2 style="text-align: center;"><br>Most popular charities<br></h2>
+        <!-- Here is the container for cards  -->
+        <div class="container">
+            <div id="charities-go-here" class="row row-cols-auto">
             </div>
         </div>
     </div>
 
-    <div class="charity_card">
-
-        <div class="card mb-4" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="https://images.unsplash.com/photo-1608686207856-001b95cf60ca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80"
-                        class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Charity 2</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                        <a href="#" class="btn btn-success">See more</a>
-                    </div>
+    <template id="charityCardTemplate" class="cardy">
+        <div class="col-md-4">
+            <div class="card shadow py-2 mx-2" style="width: 20rem">
+                <img class="card-image card-img-top" src="..." alt="..." />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Card title</h5>
+                    <br />
+                    <p class="card-text">
+                        Short description about this charity
+                    </p>
+                    <a class="button btn btn-success card-href">Read more</a>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="charity_card">
-        <div class="card mb-4" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="https://plus.unsplash.com/premium_photo-1663089162887-403fb53108cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                        class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Charity 3</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                        <a href="#" class="btn btn-success">See more</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    </template>>
     <br><br><br>
 
     <!--footer-->
     <nav id="footerPlaceholder"></nav>
+
+    <!-- js functions of your own -->
+    <script src="./scripts/firebaseAPI_DTC_16.js"></script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/filter.js"></script>
 
 </body>
 

@@ -30,17 +30,30 @@ img {
 h2 {
   color: green;
   font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+
+h3 {
+  /* font-weight: bold; */
+  text-align: center;
+  margin-top: 5px;
 }
 
 .donate {
-  background-color: green !important;
-    color: white;
+  background-color: white !important;
+  color: green;
   border-radius: 30px;
   font-weight: bold;
+  font-size: 27px;
+  border: 2px solid green;
 }
 
 .donate:hover {
-    color: green;
-    background-color: white !important;
-    border: 2px solid green;
+  background-color: green !important;
+  color: white;
+}
+
+img {
+  margin-top: 10px;
 }

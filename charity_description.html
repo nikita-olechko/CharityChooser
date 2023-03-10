@@ -31,11 +31,6 @@
   <script src="https://kit.fontawesome.com/262aa8bad2.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!-- js functions of your own -->
-  <script src="./scripts/firebaseAPI_DTC_16.js"></script>
-  <script src="./scripts/authentication.js"></script>
-  <script src="./scripts/skeleton.js"></script>
-
   <!-- Link to styles of your own -->
   <link rel="stylesheet" href="./styles/style.css">
   <link rel="stylesheet" href="./styles/charity_description.css">
@@ -48,49 +43,50 @@
   <br>
 
   <!-- description page starts here -->
-
-  <div class="container cardy">
-    <div class="row">
-      <div class="col" style="max-height: 200px">
-        <h2 style="margin-left: 15px;">Charity 2</h2>
-        <ul class="listy">
-          <li>Hello there hiihihihihi</li>
-          <li>overflow list</li>
-          <li>lorem</li>
-          <li>lorem</li>
-          <li>lorem</li>
-          <li>lorem</li>
-          <li>lorem</li>
-          <li>lorem</li>
-        </ul>
+  <br><br><br>
+  <div class="container">
+    <div class="container cardy">
+      <div class="row">
+        <!-- <div class="col" style="max-height: 200px"> -->
+        <h2><span id="charityName">Charity</span></h2>
+        <!-- <ul class="listy" style="margin: 20px">
+            <li>We support</li>
+            <li>We have shelter for everyone</li>
+            <li>lorem</li>
+            <li>lorem</li>
+            <li>lorem</li>
+            <li>lorem</li>
+            <li>lorem</li>
+            <li>lorem</li>
+          </ul> -->
       </div>
-      <div class="col"><img src="https://picsum.photos/seed/picsum/150/200"></div>
+      <div class="col"><img class="charity-img responsive" style="max-width: 100%;" src="" /></div>
     </div>
   </div>
 
   <!-- charity detail -->
 
   <div class="overflow-y-auto detail">
-    <h2>About Charity 2</h2>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis ex in molestiae. Vero, quisquam. Saepe
-      nulla ad provident corporis, error tenetur, sapiente nemo earum vero nobis exercitationem, totam delectus magni.
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis ex in molestiae. Vero, quisquam. Saepe
-      nulla ad provident corporis, error tenetur, sapiente nemo earum vero nobis exercitationem, totam delectus magni.
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis ex in molestiae. Vero, quisquam. Saepe
-      nulla ad provident corporis, error tenetur, sapiente nemo earum vero nobis exercitationem, totam delectus magni.
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis ex in molestiae. Vero, quisquam. Saepe
-      nulla ad provident corporis, error tenetur, sapiente nemo earum vero nobis exercitationem, totam delectus magni.
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis ex in molestiae. Vero, quisquam. Saepe
-      nulla ad provident corporis, error tenetur, sapiente nemo earum vero nobis exercitationem, totam delectus magni.
-    </p>
+    <h3>About <span id="charityName">this charity</span></h3>
+    <div id="charityDetails"></div>
+
   </div>
   <div class="d-grid gap-2 col-6 mx-auto">
-    <button type="button" class="btn btn-outline-success btn-lg donate">Donate</button>
+    <button class="donate btn bottom-0 end-0 m-3" onclick="savePaymentDocumentIDAndRedirect()">Donate
+      </button>
+    
+  </div>
   </div>
   <br><br><br>
 
   <!-- footer -->
   <nav id="footerPlaceholder"></nav>
+
+  <!-- js functions of your own -->
+  <script src="./scripts/firebaseAPI_DTC_16.js"></script>
+  <script src="./scripts/skeleton.js"></script>
+  <script src="./scripts/charity_description.js"></script>
+
 </body>
 
 </html>
