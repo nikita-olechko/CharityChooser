@@ -88,7 +88,6 @@ function writeEvents() {
   });
 }
 
-writeEvents();
 //------------------------------------------------------------------------------
 // Input parameter is a string representing the collection we are reading from
 //------------------------------------------------------------------------------
