@@ -58,16 +58,14 @@
     <!-- top nav bar-->
     <nav id="navbarPlaceholder"></nav>
 
-
     <!--footer-->
-    
+
     <nav id="footerPlaceholder"></nav>
-    <section class="vh-100">
+    <section class="vh-60" style="padding-top: 10rem; padding-bottom: 10rem;">
       <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-xl-9">
             <h1 class="text-black mb-4">Charity Registration</h1>
-            
 
             <div class="card" style="border-radius: 15px">
               <div class="card-body">
@@ -76,7 +74,11 @@
                     <h6 class="mb-0">Charity name</h6>
                   </div>
                   <div class="col-md-9 pe-5">
-                    <input type="text" class="form-control form-control-lg" />
+                    <input
+                      id="charity-name"
+                      type="text"
+                      class="form-control form-control-lg"
+                    />
                   </div>
                 </div>
 
@@ -88,9 +90,30 @@
                   </div>
                   <div class="col-md-9 pe-5">
                     <input
-                      type="email"
+                      id="email"
                       class="form-control form-control-lg"
-                      placeholder="example@example.com"
+                      placeholder="example@gmail.com"
+                    />
+                  </div>
+                </div>
+
+                <hr class="mx-n3" />
+
+                <div class="row align-items-center py-3">
+                  <div class="col-md-3 ps-5">
+                    <h6 class="mb-0">Location</h6>
+                  </div>
+                  <div class="col-md-9 pe-5">
+                    <input
+                      id="country"
+                      class="form-control form-control-lg"
+                      placeholder="Country"
+                    />
+                    <br />
+                    <input
+                      id="city"
+                      class="form-control form-control-lg"
+                      placeholder="City"
                     />
                   </div>
                 </div>
@@ -103,6 +126,7 @@
                   </div>
                   <div class="col-md-9 pe-5">
                     <textarea
+                      id="charity-description"
                       class="form-control"
                       rows="3"
                       placeholder="Tell us about your charity"
@@ -114,17 +138,16 @@
 
                 <div class="row align-items-center py-3">
                   <div class="col-md-3 ps-5">
-                    <h6 class="mb-0">Upload image</h6>
+                    <h6 id="upload-image" class="mb-0">Upload image</h6>
                   </div>
                   <div class="col-md-9 pe-5">
                     <input
                       class="form-control form-control-lg"
-                      id="formFileLg"
+                      id="image-input"
                       type="file"
                     />
                     <div class="small text-muted mt-2">
-                      Upload image (PNG) Max file
-                      size 50 MB
+                      Upload image (PNG) Max file size 50 MB
                     </div>
                   </div>
                 </div>
@@ -132,8 +155,12 @@
                 <hr class="mx-n3" />
 
                 <div class="px-5 py-4">
-                  <button type="submit" class="btn btn-primary btn-lg">
-                    Send application
+                  <button
+                    id="submit-button"
+                    type="submit"
+                    class="btn btn-primary btn-lg" style="color: white; background-color: #2ca440;"
+                  >
+                    Submit form
                   </button>
                 </div>
               </div>
@@ -148,6 +175,6 @@
     <script src="./scripts/main.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/filter.js"></script>
-    <script src="./register.js"></script>
+    <script src="./scripts/register.js"></script>
   </body>
 </html>
