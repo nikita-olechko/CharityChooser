@@ -37,23 +37,27 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
         </script>
+    
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
 
     <!-- js functions of your own -->
     <script src="./scripts/firebaseAPI_DTC_16.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/filter.js"></script>
-
+    
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/filter.css">
+    <link rel="stylesheet" href="./styles/map.css">
+    
 </head>
 
 <body>
     <!-- top nav bar-->
     <nav id="navbarPlaceholder"></nav>
-
+    
     <!-- Filter -->
-    <main>
+    <div>
         <div class="container-fluid flex-container text-center position-fixed z-index-filter-box">
             <div class="row">
                 <div id="filter-popup" class="col padding-bottom center-filter" style="display: none;">
@@ -66,67 +70,75 @@
                                 <div class="col">
                                     <div class="row">
                                         <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
-                                                    value="1"> Filter 1</label></div>
+                                            value="1"> Filter 1</label></div>
                                         <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
-                                                    value="2"> Filter 2</label></div>
+                                            value="2"> Filter 2</label></div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
-                                                    value="1"> Filter 3</label></div>
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
+                                                value="1"> Filter 3</label></div>
+                                                <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
                                                     value="2"> Filter 4</label></div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
-                                                    value="1"> Filter 5</label></div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="row">
+                                                    <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
+                                                        value="1"> Filter 5</label></div>
+                                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
+                                                            value="2"> Filter 6</label></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row padding-top-bot">
+                                                    <h5 class="float-start">Second Filter Group</h5>
+                                                    
+                                                    <div class="col">
+                                                        <div class="row">
+                                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
+                                                                value="1"> Filter 1</label></div>
                                         <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
-                                                    value="2"> Filter 6</label></div>
+                                            value="2"> Filter 2</label></div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row padding-top-bot">
-                                <h5 class="float-start">Second Filter Group</h5>
-
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
-                                                    value="1"> Filter 1</label></div>
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
-                                                    value="2"> Filter 2</label></div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
-                                                    value="1"> Filter 3</label></div>
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
+                                                value="1"> Filter 3</label></div>
+                                                <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
                                                     value="2"> Filter 4</label></div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="row">
+                                                    <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
+                                                        value="1"> Filter 5</label></div>
+                                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
+                                                            value="2"> Filter 6</label></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
-                                                    value="1"> Filter 5</label></div>
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
-                                                    value="2"> Filter 6</label></div>
+                                    <div class="col padding-right padding-bottom padding-top justify-content-end">
+                                        <button id="filter-button" class="card col float-end">Filter</button>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col padding-right padding-bottom padding-top justify-content-end">
-                    <button id="filter-button" class="card col float-end">Filter</button>
-                </div>
             </div>
         </div>
-    </main>
-
-    <nav id="footerPlaceholder"></nav>
-</body>
-
-</html>
+    </div>
+    
+    <!-- Main Body -->
+    <main>
+        <!-- MAPBOX -->
+        <!-- <h2>Map View Holder</h2> -->
+        <div id='map' class="map_margin" style='width: 100%; height: 800px;'></div>
+        </main>
+        
+        <!-- <nav id="footerPlaceholder"></nav> -->
+    </body>
+    
+    <script src="./scripts/map.js"></script>
+    </html>
