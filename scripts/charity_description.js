@@ -11,13 +11,19 @@ function displayCharityInformation() {
       charityInfo = thisCharity.data();
       charityCode = charityInfo.code;
       charityName = charityInfo.name;
-      charityDetails = charityInfo.details; 
+      charityDetails = charityInfo.details;
+      charityAddress = charityInfo.Address;
+      charityZipcode = charityInfo.zipcode;
+      charityURL = charityInfo.url;
 
       document.getElementById("charityName").innerHTML = charityName;
-      document.getElementById("charityName").innerHTML = charityName;
       document.getElementById("charityDetails").innerHTML = charityDetails;
+      document.getElementById("charityAddress").innerHTML = charityAddress;
+      document.getElementById("charityURL").innerHTML = charityURL;
+
       let imgEvent = document.querySelector(".charity-img");
       imgEvent.src = "../images/" + charityCode + ".jpg";
+
     });
 }
 
