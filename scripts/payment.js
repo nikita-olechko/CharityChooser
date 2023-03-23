@@ -28,9 +28,10 @@ function writePayment() {
   let PaymentMethod = document.querySelector(
     'input[name="paymentMethod"]:checked'
   ).value;
-  let CC_name = document.getElementById("cc_name").value;
-  let CC_number = document.getElementById("cc_number").value;
-  let CC_cvv = document.getElementById("cc_cvv").value;
+  let CC_name = document.getElementById("card_name").value;
+  let CC_number = document.getElementById("card_number").value;
+  let CC_cvv = document.getElementById("card_cvv").value;
+  let CC_expiration = document.getElementById("card_expiration").value;
 
   console.log(
     Firstname,
@@ -52,7 +53,7 @@ function writePayment() {
       var userID = user.uid;
       //get the document for current user.
       currentUser.get().then((userDoc) => {
-        var userEmail = userDoc.data().email;
+        // var userEmail = userDoc.data().email;
         db.collection("payment")
           .add({
             charityDocID: charityDocID,
@@ -67,9 +68,10 @@ function writePayment() {
             postal: Postal,
             save_info: SaveAddress,
             paymentMethod: PaymentMethod,
-            cc_name: CC_name,
-            cc_number: CC_number,
-            cc_cvv: CC_cvv,
+            card_name: CC_name,
+            card_number: CC_number,
+            card_cvv: CC_cvv,
+            card_expiration: CC_expiration,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           })
           .then(() => {
