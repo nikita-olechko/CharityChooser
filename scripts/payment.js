@@ -78,6 +78,23 @@ function writePayment() {
     PaymentMethod
   );
 
+  // Check if required fields are empty
+  if (
+    Firstname === "" ||
+    Lastname === "" ||
+    Address === "" ||
+    Country === "" ||
+    Postal === "" ||
+    PaymentMethod === "" ||
+    CC_name === "" ||
+    CC_number === "" ||
+    CC_cvv === "" ||
+    CC_expiration === ""
+  ) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+
   firebase.auth().onAuthStateChanged((user) => {
     // check who's logged in. so it is a boolean
     if (user) {
