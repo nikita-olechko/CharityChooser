@@ -79,8 +79,17 @@
 }
 
 /* Change Position of filter button */
-.padding-right { 
+.padding-right {
     padding-right: 70px;
+}
+
+.padding-left {
+    padding-left: 70px;
+}
+
+.filter-header-padding {
+    padding-top: 30px;
+    /* padding-bottom: 10px; */
 }
 
 .padding-bottom {
@@ -130,4 +139,19 @@
     top: 10px;
     right: 10px;
     z-index: 9;
+}
+
+.filter-button-spacing {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: end;
+}
+
+.flex-start {
+    display: flex;
+    justify-content: start;
 }
