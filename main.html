@@ -38,6 +38,7 @@
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/filter.css">
+    <link rel="stylesheet" href="styles/map.css">
 </head>
 
 <body>
@@ -49,7 +50,8 @@
     <main>
         <div class="container-fluid flex-container text-center position-fixed z-index-filter-box">
             <div class="row">
-                <div id="filter-popup" class="col padding-bottom center-filter" style="display: none;">
+                <div id="filter-popup" class="col padding-bottom center-filter filter-header-padding"
+                    style="display: none;">
                     <div class="card_filter">
                         <div class="container-fluid">
                             <!-- <h6>Filter Box</h6> -->
@@ -81,7 +83,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row padding-top-bot">
+                            <div class="row padding-top">
                                 <h5 class="float-start">Extreme Weather Event</h5>
 
                                 <div class="col">
@@ -134,6 +136,13 @@
                                                     value="2"> Heat Wave</label></div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row padding-top-bot filter-button-spacing">
+                                <div class="col flex-end padding-right"><a href=""><button
+                                            class="button btn btn-success">Cancel</button></a></div>
+                                <div class="col flex-start padding-left"><a href=""><button
+                                            class="button btn btn-success">Apply
+                                            Filters</button></a></div>
                             </div>
                         </div>
                     </div>
