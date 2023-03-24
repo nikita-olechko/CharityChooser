@@ -21,6 +21,10 @@ function displayCharityInformation() {
       document.getElementById("charityAddress").innerHTML = charityAddress;
       document.getElementById("charityURL").innerHTML = charityURL;
 
+      let anchorTag = document.getElementById("charityURL");
+      anchorTag.textContent = charityURL;
+      anchorTag.href = charityURL;
+
       let imgEvent = document.querySelector(".charity-img");
       imgEvent.src = "../images/" + charityCode + ".jpg";
 

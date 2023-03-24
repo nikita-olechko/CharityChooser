@@ -46,7 +46,7 @@ h3 {
   border-radius: 30px;
   font-weight: bold;
   font-size: 27px;
-  border: 2px solid green;
+  border: 2px solid green !important;
 }
 
 .donate:hover {
@@ -56,4 +56,14 @@ h3 {
 
 img {
   margin-top: 10px;
+}
+
+#charityURL {
+  color: rgb(169, 169, 169) !important;
+  font-weight:normal !important;
+}
+
+#charityURL:hover {
+  color: black !important;
+  font-weight:normal !important;
 }
