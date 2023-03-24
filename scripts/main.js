@@ -86,6 +86,86 @@ function writeEvents() {
     lng: -122.9187029619698,
     last_updated: firebase.firestore.FieldValue.serverTimestamp() //current system time
   });
+  eventsRef.add({
+    code: "US01",
+    name: "Hurricane Maximus",
+    country: "USA",
+    details: "On August 15th, 2022, Hurricane Maximus made landfall in Miami, Florida, causing widespread destruction and flooding. The hurricane resulted in the deaths of over 100 people and caused billions of dollars in damages.",
+    date: "August 15th, 2022",
+    lat: 25.7617,
+    lng: -80.1918,
+    last_updated: firebase.firestore.FieldValue.serverTimestamp()
+  });
+  eventsRef.add({
+    code: "AU01",
+    name: "Heatwave Inferno",
+    country: "Australia",
+    details: "In January 2023, Sydney experienced a record-breaking heatwave dubbed 'Inferno'. The heatwave resulted in temperatures exceeding 45 degrees Celsius, causing widespread power outages and resulting in the deaths of over 50 people.",
+    date: "January 2023",
+    lat: -33.8688,
+    lng: 151.2093,
+    last_updated: firebase.firestore.FieldValue.serverTimestamp()
+  });
+  eventsRef.add({
+    code: "CA01",
+    name: "Blizzard Avalanche",
+    country: "Canada",
+    details: "In December 2022, Toronto experienced a severe blizzard named 'Avalanche'. The blizzard resulted in heavy snowfall, power outages, and several traffic accidents. The blizzard caused the deaths of over 20 people.",
+    date: "December 2022",
+    lat: 43.6532,
+    lng: -79.3832,
+    last_updated: firebase.firestore.FieldValue.serverTimestamp()
+  });
+  eventsRef.add({
+    code: "GR01",
+    name: "Wildfire Inferno",
+    country: "Greece",
+    details: "In August 2022, Athens experienced a catastrophic wildfire named 'Inferno'. The wildfire spread rapidly due to strong winds and hot temperatures, resulting in the deaths of over 60 people and the destruction of hundreds of homes and businesses.",
+    date: "August 2022",
+    lat: 37.9838,
+    lng: 23.7275,
+    last_updated: firebase.firestore.FieldValue.serverTimestamp()
+  });
+  eventsRef.add({
+    code: "US02",
+    name: "Tornado Twister",
+    country: "USA",
+    details: "In May 2023, Oklahoma City was struck by a powerful tornado named 'Twister'. The tornado caused significant damage to buildings and infrastructure, resulting in the deaths of over 30 people and the displacement of thousands more.",
+    date: "May 2023",
+    lat: 35.4676,
+    lng: -97.5164,
+    last_updated: firebase.firestore.FieldValue.serverTimestamp()
+  });
+  eventsRef.add({
+    code: "BR01",
+    name: "Wildfires Amazon Apocalypse",
+    country: "Brazil",
+    details: "In August 2024, the Amazon rainforest in Brazil was hit by a catastrophic wildfire known as 'Amazon Apocalypse'. The wildfires were the result of extreme heat and dry weather, destroying millions of hectares of forest and causing significant damage to biodiversity. The wildfires caused the deaths of many animals and displaced indigenous communities.",
+    date: "August 2024",
+    lat: -3.1190,
+    lng: -60.0212,
+    last_updated: firebase.firestore.FieldValue.serverTimestamp()
+  });
+  eventsRef.add({
+    code: "IN01",
+    name: "Floods Deluge",
+    country: "India",
+    details: "In July 2022, Mumbai was hit by severe floods named 'Deluge'. The heavy rains resulted in overflowing rivers, causing significant damage to buildings and infrastructure. The floods caused the deaths of over 50 people and displaced millions.",
+    date: "July 2022",
+    lat: 19.0760,
+    lng: 72.8777,
+    last_updated: firebase.firestore.FieldValue.serverTimestamp()
+  });
+  eventsRef.add({
+    code: "ZA01",
+    name: "Drought Desertification",
+    country: "South Africa",
+    details: "In October 2022, Cape Town experienced a severe drought named 'Desertification'. The drought resulted in water shortages, causing significant damage to agriculture and wildlife. The drought caused the deaths of over 10,000 animals and displaced several communities.",
+    date: "October 2022",
+    lat: -33.9249,
+    lng: 18.4241,
+    last_updated: firebase.firestore.FieldValue.serverTimestamp()
+  });
 }
 
 //------------------------------------------------------------------------------
