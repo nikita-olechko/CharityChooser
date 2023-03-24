@@ -25,9 +25,8 @@ function writeCharities() {
     name: "Food Banks Canada",
     city: "Burnaby",
     province: "BC",
-    details: "Our mission is to relieve hunger today and prevent hunger tomorrow.",
-    lat: 49.2467097082573,
-    lng: -122.9187029619698,
+    details:
+      "Our mission is to relieve hunger today and prevent hunger tomorrow.",
     last_updated: firebase.firestore.FieldValue.serverTimestamp(), //current system time
   });
   CharitiesRef.add({
@@ -35,9 +34,8 @@ function writeCharities() {
     name: "Inn from the Cold",
     city: "Anmore",
     province: "BC",
-    details: "Inn from the Cold meets the needs of people who are homeless or at risk of becoming homeless. We work with the community and collaborate with our partners in supporting those with basic to complex needs in York Region.",
-    lat: 49.3399431028579,
-    lng: -122.85908496766939,
+    details:
+      "Inn from the Cold meets the needs of people who are homeless or at risk of becoming homeless. We work with the community and collaborate with our partners in supporting those with basic to complex needs in York Region.",
     last_updated: firebase.firestore.FieldValue.serverTimestamp(),
   });
   CharitiesRef.add({
@@ -46,8 +44,6 @@ function writeCharities() {
     city: "North Vancouver",
     province: "BC",
     details: "Furniture Bank aim to ensure good furniture and housewares end up back into the community to support getting children off the floor, and families established in a furnished home.",
-    lat: 49.38847101455571,
-    lng: -122.94092543551031,
     last_updated: firebase.firestore.FieldValue.serverTimestamp(),
   });
 }
