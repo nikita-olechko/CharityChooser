@@ -15,7 +15,7 @@ function showEventsOnMap() {
     // Adds map features
     map.on('load', () => {
         const features = []; // Defines an empty array for information to be added to
-        
+
         // Defines map pin icon
         map.loadImage(
             'https://cdn.iconscout.com/icon/free/png-256/pin-locate-marker-location-navigation-16-28668.png',
@@ -43,7 +43,7 @@ function showEventsOnMap() {
                         features.push({
                             'type': 'Feature',
                             'properties': {
-                                'description': `<strong>${event_name}</strong><p>${preview}</p> <br> <a href="/hike.html?id=${doc.id}" target="_blank" title="Opens in a new window">Read more</a>`
+                                'description': `<strong>${event_name}</strong><p>${preview}</p> <br> <a href="/main.html?id=${doc.id}" target="" title="Opens in a new window"><button class="button btn btn-success card-href">Find Charities</button></a>`
                             },
                             'geometry': {
                                 'type': 'Point',

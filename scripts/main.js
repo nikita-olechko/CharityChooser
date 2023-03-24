@@ -25,17 +25,16 @@ function writeCharities() {
     name: "Food Banks Canada",
     city: "Burnaby",
     province: "BC",
-    details:
-      "Our mission is to relieve hunger today and prevent hunger tomorrow.",
+    details: "Our mission is to relieve hunger today and prevent hunger tomorrow.",
     last_updated: firebase.firestore.FieldValue.serverTimestamp(), //current system time
   });
+
   CharitiesRef.add({
     code: "HOUSE01",
     name: "Inn from the Cold",
     city: "Anmore",
     province: "BC",
-    details:
-      "Inn from the Cold meets the needs of people who are homeless or at risk of becoming homeless. We work with the community and collaborate with our partners in supporting those with basic to complex needs in York Region.",
+    details: "Inn from the Cold meets the needs of people who are homeless or at risk of becoming homeless. We work with the community and collaborate with our partners in supporting those with basic to complex needs in York Region.",
     last_updated: firebase.firestore.FieldValue.serverTimestamp(),
   });
   CharitiesRef.add({
@@ -61,6 +60,16 @@ function writeEvents() {
     lat: 49.2467097082573,
     lng: -122.9187029619698,
     last_updated: firebase.firestore.FieldValue.serverTimestamp() //current system time
+  });
+  eventsRef.add({
+    code: "CA01",
+    name: "Landslide Cascade Catastrophe",
+    country: "Canada",
+    details: "In November 2024, Vancouver was hit by a massive landslide known as 'Cascade Catastrophe'. The landslide was caused by heavy rainfall, and it resulted in significant damage to buildings and infrastructure. The landslide caused the deaths of over 30 people and left many injured.",
+    date: "November 2024",
+    lat: 49.2827,
+    lng: -123.1207,
+    last_updated: firebase.firestore.FieldValue.serverTimestamp()
   });
   eventsRef.add({
     code: "SP01",
