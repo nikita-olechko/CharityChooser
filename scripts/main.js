@@ -100,11 +100,13 @@ function displayCardsDynamically(collection) {
         var details = doc.data().details; // get value of the "details" key
         var charityCode = doc.data().code; //get unique ID to each charity to be used for fetching right image
         var docID = doc.id;
+        var donationType = doc.data().type_of_donation;
         let newcard = cardTemplate.content.cloneNode(true);
 
         //update title and text and image
         newcard.querySelector(".card-title").innerHTML = title;
         newcard.querySelector(".card-text").innerHTML = details;
+        newcard.querySelector(".card-type").innerHTML = donationType;
         newcard.querySelector(".card-image").src = `./images/${charityCode}.jpg`; //Example: NV01.jpg
         newcard.querySelector("a").href =
           "charity_description.html?docID=" + docID;
