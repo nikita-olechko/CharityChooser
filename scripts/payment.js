@@ -1,3 +1,17 @@
+var charityDocID = localStorage.getItem("charityDocID"); //visible to all functions on this page
+
+function getCharityName(id) {
+  db.collection("charities")
+    .doc(id)
+    .get()
+    .then((thisCharity) => {
+      var charityName = thisCharity.data().name;
+      document.getElementById("charityName").innerHTML = charityName;
+    });
+}
+
+getCharityName(charityDocID);
+
 const donationButtons = document.querySelectorAll(".donation-amount");
 const donationOtherButton = document.querySelector(".donation-amount-other");
 const donationInput = document.querySelector(".donation-amount-input");
@@ -27,22 +41,8 @@ donationInput.addEventListener("input", () => {
     if (parseFloat(value) === 0) {
       alert("Please enter at least $1.");
     }
-  } 
+  }
 });
-
-var charityDocID = localStorage.getItem("charityDocID"); //visible to all functions on this page
-
-function getCharityName(id) {
-  db.collection("charities")
-    .doc(id)
-    .get()
-    .then((thisCharity) => {
-      var charityName = thisCharity.data().name;
-      document.getElementById("charityName").innerHTML = charityName;
-    });
-}
-
-getCharityName(charityDocID);
 
 function writePayment() {
   console.log("inside write payment");
@@ -91,7 +91,7 @@ function writePayment() {
     CC_cvv === "" ||
     CC_expiration === ""
   ) {
-    alert("Please fill in all required fields.");
+    alert("Please fill in all required information.");
     return;
   }
 
