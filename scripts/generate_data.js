@@ -1,13 +1,3 @@
-const IconTemplate = document.querySelector("")
-
-function getDataFromFirestore() {
-    const db = firebase.firestore();
-    db.collection("users").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            console.log(`${doc.id} => ${doc.data()}`);
-        });
-    });
-}
 
 function writeEvents() {
     //define a variable for the collection you want to create in Firestore to populate data
