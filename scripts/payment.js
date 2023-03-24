@@ -17,16 +17,18 @@ donationOtherButton.addEventListener("click", () => {
   donationInput.disabled = false;
 });
 
-// Add event listener to the input field to format value with dollar sign
+// Add event listener to the input field to format value with dollar sign and check for 0 value
 donationInput.addEventListener("input", () => {
   const value = donationInput.value;
   if (value.length > 0) {
     if (!value.startsWith("$")) {
       donationInput.value = "$" + value;
     }
-  }
+    if (parseFloat(value) === 0) {
+      alert("Please enter at least $1.");
+    }
+  } 
 });
-
 
 var charityDocID = localStorage.getItem("charityDocID"); //visible to all functions on this page
 
