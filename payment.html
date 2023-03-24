@@ -44,37 +44,51 @@
   <!-- Choose amount -->
   <br><br><br>
   <div class="top_comment">
-    <p>Thank you for choosing <span id="charityName" style="color: green;">charity Name</span>!</p>
-    Your Donation Makes A Difference
+    
+    <p>Thank you for choosing <span id="charityName">charity Name</span>!</p>
+    Your donation makes a difference.
   </div>
+  <div class="container">
+<div class="container">
+  <hr class="my-4">
 
-  <div class="container text-center">
-    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
-      <div class="col amount">
-        <div class="p-3">$100</div>
+  
+    <h4 class="mb-3" style="color:green;">Choose amount</h4>
+    <div class="row">
+      <div class="col-4">
+        <button class="donation-amount btn btn-success btn-lg btn-equal-width" data-amount="100">$100</button>
       </div>
-      <div class="col amount">
-        <div class="p-3">$50</div>
+      <div class="col-4">
+        <button class="donation-amount btn btn-success btn-lg btn-equal-width" data-amount="50">$50</button>
       </div>
-      <div class="col amount">
-        <div class="p-3">$25</div>
+      <div class="col-4">
+        <button class="donation-amount btn btn-success btn-lg btn-equal-width" data-amount="25">$25</button>
       </div>
-      <div class="col amount">
-        <div class="p-3">$10</div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <button class="donation-amount btn btn-success btn-lg btn-equal-width" data-amount="10">$10</button>
       </div>
-      <div class="col amount">
-        <div class="p-3">$5</div>
+      <div class="col-4">
+        <button class="donation-amount btn btn-success btn-lg btn-equal-width" data-amount="5">$5</button>
       </div>
-      <div class="col amount">
-        <div class="p-3">Other</div>
+      <div class="col-4">
+        <button class="donation-amount-other btn btn-success btn-lg btn-equal-width">Other</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <input class="donation-amount-input form-control form-control-lg" type="text" pattern="[0-9$]*"
+          placeholder="Customize amount" min="1" disabled>
       </div>
     </div>
   </div>
 
   <!-- payment information -->
+  <hr class="my-4">
   <div class="center">
     <div class="col-10 col-lg-7">
-      <h4 class="mb-3" style="margin-top: 20px; color:green;">Billing address</h4>
+      <h4 class="mb-3" style="color:green;">Billing address</h4>
       <form class="needs-validation" novalidate>
         <div class="row g-3">
           <div class="col-6 col-sm-6">
@@ -234,11 +248,7 @@
   </div>
   </main>
   </div>
-  <br><br><br>
-  <br><br><br>
-  <br><br><br>
-  <br><br><br>
-
+</div>
   <!-- js functions of your own -->
   <script src="./scripts/firebaseAPI_DTC_16.js"></script>
   <script src="./scripts/skeleton.js"></script>

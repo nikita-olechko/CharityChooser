@@ -1,3 +1,33 @@
+const donationButtons = document.querySelectorAll(".donation-amount");
+const donationOtherButton = document.querySelector(".donation-amount-other");
+const donationInput = document.querySelector(".donation-amount-input");
+
+// Add event listeners to the donation buttons
+donationButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const amount = button.getAttribute("data-amount");
+    donationInput.value = "$" + amount;
+    donationInput.disabled = true;
+  });
+});
+
+// Add event listener to the other button
+donationOtherButton.addEventListener("click", () => {
+  donationInput.value = "";
+  donationInput.disabled = false;
+});
+
+// Add event listener to the input field to format value with dollar sign
+donationInput.addEventListener("input", () => {
+  const value = donationInput.value;
+  if (value.length > 0) {
+    if (!value.startsWith("$")) {
+      donationInput.value = "$" + value;
+    }
+  }
+});
+
+
 var charityDocID = localStorage.getItem("charityDocID"); //visible to all functions on this page
 
 function getCharityName(id) {
