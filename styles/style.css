@@ -80,6 +80,10 @@ form {
   text-align: left;
 }
 
+.padding-top {
+  padding-top: 50px;
+}
+
 .search-bar button {
   position: absolute;
   cursor: pointer;

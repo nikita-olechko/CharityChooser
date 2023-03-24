@@ -15,7 +15,7 @@ function showEventsOnMap() {
     // Adds map features
     map.on('load', () => {
         const features = []; // Defines an empty array for information to be added to
-
+        
         // Defines map pin icon
         map.loadImage(
             'https://cdn.iconscout.com/icon/free/png-256/pin-locate-marker-location-navigation-16-28668.png',
