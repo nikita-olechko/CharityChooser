@@ -12,6 +12,38 @@ function getCharityName(id) {
 
 getCharityName(charityDocID);
 
+const donationButtons = document.querySelectorAll(".donation-amount");
+const donationOtherButton = document.querySelector(".donation-amount-other");
+const donationInput = document.querySelector(".donation-amount-input");
+
+// Add event listeners to the donation buttons
+donationButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const amount = button.getAttribute("data-amount");
+    donationInput.value = "$" + amount;
+    donationInput.disabled = true;
+  });
+});
+
+// Add event listener to the other button
+donationOtherButton.addEventListener("click", () => {
+  donationInput.value = "";
+  donationInput.disabled = false;
+});
+
+// Add event listener to the input field to format value with dollar sign and check for 0 value
+donationInput.addEventListener("input", () => {
+  const value = donationInput.value;
+  if (value.length > 0) {
+    if (!value.startsWith("$")) {
+      donationInput.value = "$" + value;
+    }
+    if (parseFloat(value) === 0) {
+      alert("Please enter at least $1.");
+    }
+  }
+});
+
 function writePayment() {
   console.log("inside write payment");
   let Firstname = document.getElementById("firstName").value;
@@ -45,6 +77,23 @@ function writePayment() {
     SaveAddress,
     PaymentMethod
   );
+
+  // Check if required fields are empty
+  if (
+    Firstname === "" ||
+    Lastname === "" ||
+    Address === "" ||
+    Country === "" ||
+    Postal === "" ||
+    PaymentMethod === "" ||
+    CC_name === "" ||
+    CC_number === "" ||
+    CC_cvv === "" ||
+    CC_expiration === ""
+  ) {
+    alert("Please fill in all required information.");
+    return;
+  }
 
   firebase.auth().onAuthStateChanged((user) => {
     // check who's logged in. so it is a boolean
