@@ -1,31 +1,62 @@
-// Get reference to submit button
-const submitButton = document.getElementById("submit-button");
+var ImageFile;
 
-// Add event listener to submit button
-submitButton.addEventListener("click", (event) => {
-  // Prevent form from submitting and page from refreshing
+function listenFileSelect() {
+  var fileInput = document.getElementById("mypic-input");
+  fileInput.addEventListener('change', function (e) {
+    ImageFile = e.target.files[0];
+  })
+}
+listenFileSelect();
+
+async function uploadImage(docId) {
+  if (ImageFile) {
+    const fileExtension = ImageFile.name.split(".").pop(); // get file extension
+    const storageRef = firebase.storage().ref("images/" + docId + fileExtension);
+    console.log("Uploading image:", ImageFile.name); // print message
+    await storageRef.put(ImageFile);
+    const imageURL = await storageRef.getDownloadURL();
+    console.log("Image uploaded, URL:", imageURL);
+    return imageURL;
+  }
+  return null;
+}
+
+async function savePost(event) {
   event.preventDefault();
-
-  // Get values from form fields
   const charityName = document.getElementById("charity-name").value;
   const email = document.getElementById("email").value;
   const country = document.getElementById("country").value;
   const city = document.getElementById("city").value;
-  const description = document.getElementById("charity-description").value;
+  const charityDescription = document.getElementById("charity-description").value;
 
-  // Create new document in "charities" collection
-  db.collection("charities").add({
-    name: charityName,
-    email: email,
-    country: country,
-    city: city,
-    details: description
-  })
-  .then((docRef) => {
-    console.log("Document written with ID: ", docRef.id);
-    window.location.href = "success.html";
-  })
-  .catch((error) => {
-    console.error("Error adding document: ", error);
-  });
-});
+  if (charityName && email && country && city && charityDescription && ImageFile) {
+    firebase.auth().onAuthStateChanged(async function (user) {
+      if (user) {
+        const charityData = {
+          owner: user.uid,
+          name: charityName,
+          email: email,
+          country: country,
+          city: city,
+          details: charityDescription,
+          last_updated: firebase.firestore.FieldValue.serverTimestamp()
+        };
+
+        const docRef = await firebase.firestore().collection("charities").add(charityData);
+        // console.log("Test if function is being called")
+        // console.log(ImageFile)
+        const imageURL = await uploadImage(docRef.id);
+        // console.log("Test if function is being called 2")
+        await firebase.firestore().collection("charities").doc(docRef.id).update({ image: imageURL });
+        // console.log("Image URL added to Firestore document", imageURL);
+
+        alert("Charity information has been submitted!");
+        document.getElementById("charity-registration-form").reset();
+      } else {
+        console.log("Error, no user signed in");
+      }
+    });
+  }
+}
+
+document.getElementById("charity-registration-form").addEventListener("submit", savePost);
