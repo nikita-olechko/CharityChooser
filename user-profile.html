@@ -14,7 +14,7 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+  </script>
 
   <!-------------------------------------------------------->
   <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
@@ -36,7 +36,8 @@
   <script src="./scripts/skeleton.js"></script>
 
   <!-- Link to styles of your own -->
-<link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/user-profile.css">
 </head>
 
 <body>
@@ -44,42 +45,65 @@
   <nav id="navbarPlaceholder"></nav>
 
   <!-- user profile -->
-  <div class="container border" style="padding-top: 10rem;">
+  <div class="container border" style="margin-top: 10rem;">
     <div class="row justify-content-center">
       <div class="col" style="padding: 1rem; background-color: rgb(27, 158, 75);
         border: 2px solid #fff; color: #fff;">
         <i class="fa-solid fa-user fa-8x d-flex justify-content-center"></i>
+
       </div>
     </div>
+
     <div class="row justify-content-center">
       <div class="col">
         <h3 class="d-flex justify-content-center"></h3>
       </div>
+
       <div class="row">
-        <div class="col col-auto" style="padding: 1rem; padding-top: 2rem;"><button class="btn btn-outline-light"
+        <div class="col col-auto" style="padding: 2rem 0rem 1rem 0rem;"><button class="btn btn-outline-light"
             style="border: solid 1px black; background-color: rgb(27, 158, 75);" type="button">Edit Profile</button>
         </div>
       </div>
+
       <div class="row">
-        <div class="col col-auto" style="padding: 1rem;">
-          <i class="fa-solid fa-phone d-flex">&nbsp&nbsp phone-number</i>
+        <div class="col col-auto d-flex" style="padding: 1rem;">
+          <i class="fa-solid fa-phone" style="font-size: 20px;"></i>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Phone number" aria-label="Phone number" style="margin-left: 20px">
+          </div>      
         </div>
       </div>
+
       <div class="row">
-        <div class="col col-auto" style="padding: 1rem;">
-          <i class="fa-solid fa-envelope">&nbsp&nbsp email</i>
+        <div class="col col-auto d-flex" style="padding: 1rem;">
+          <i class="fa-solid fa-envelope" style="font-size: 20px;"></i>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Example@gmail.com" aria-label="email" style="margin-left: 20px">
+          </div>    
         </div>
       </div>
+
+      <div class="row">
+        <div class="col col-auto d-flex" style="padding: 1rem;">
+          <i class="fa-solid fa-signature" style="font-size: 25px;"></i>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Username" aria-label="name">
+          </div>    
+        </div>
+      </div>
+
       <div class="row">
         <div class="col col-auto" style="padding: 1rem;">
           <i class="fa-solid fa-credit-card">&nbsp&nbsp payment-method</i>
         </div>
-        <div class="row">
-          <div class="col col-auto" style="padding: 1rem;">
-            <i class="fa-solid fa-history">&nbsp&nbsp donation-history</i>
-          </div>
-        </div>
       </div>
+
+      <!-- <div class="row">
+        <div class="col col-auto" style="padding: 1rem;">
+          <i class="fa-solid fa-history">&nbsp&nbsp donation-history</i>
+        </div>
+      </div> -->
+    </div>
 
       <div class="row justify-content-center">
         <div class="col col-auto" style="padding: 0.5rem"><button id="logoutButton" class="btn btn-outline-light"

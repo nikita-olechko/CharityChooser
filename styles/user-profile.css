@@ -1,0 +1,13 @@
+input {
+  width: 100%;
+}
+
+.row input {
+  margin-left: 10px;
+}
+
+.row i {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
