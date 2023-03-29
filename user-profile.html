@@ -53,6 +53,14 @@
       </div>
     </div>
 
+    <!-- modal -->
+    <dialog class="modal" id="modal">
+      <h2>Donation History</h2>
+      <p id="charity-name-goes-here">charity name</p>
+      <button class="button close-button">close</button>
+    </dialog>
+    <!-- modal -->
+
     <div class="row justify-content-center">
       <div class="col">
         <h3 class="d-flex justify-content-center"></h3>
@@ -100,17 +108,18 @@
         </div>
       </fieldset>
 
-      <div class="row">
+      <!-- <div class="row">
         <div class="col col-auto" style="padding: 1rem;">
           <i class="fa-solid fa-credit-card">&nbsp&nbsp payment-method</i>
         </div>
-      </div>
-
-      <!-- <div class="row">
-        <div class="col col-auto" style="padding: 1rem;">
-          <i class="fa-solid fa-history">&nbsp&nbsp donation-history</i>
-        </div>
       </div> -->
+
+      <div class="row">
+        <div class="col col-auto d-flex" style="padding: 1rem;">
+          <i class="fa-solid fa-history">&nbsp&nbsp donation-history</i>
+            <button class="button open-button">View list</button>
+        </div>
+      </div>
     </div>
 
       <div class="row justify-content-center">
