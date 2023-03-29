@@ -423,8 +423,7 @@ function displayCardsDynamically(collection) {
         newcard.querySelector(
           ".card-image"
         ).src = `./images/${charityCode}.jpg`; //Example: NV01.jpg
-        newcard.querySelector("a").href =
-          "charity_description.html?docID=" + docID;
+        newcard.querySelector("a").href ="charity_description.html?docID=" + docID;
         newcard.querySelector(".card-image").src = `./images/${charityCode}.jpg`; //Example: NV01.jpg
         newcard.querySelector(".card-image").src = image; //set image from firestore storage
         newcard.querySelector("a").href = "charity_description.html?docID=" + docID;
@@ -442,41 +441,5 @@ function displayCardsDynamically(collection) {
     });
 }
 
-
-displayCardsDynamically("charities"); //input param is the name of the collection
-
-function setupFirestoreListener() {
-  // Container for cards
-  cardGroup = document.getElementById("charities-go-here");
-
-  // Template
-  cardTemplate = document.getElementById("charityCardTemplate");
-  // Attach a listener to the "posts" collection that orders the documents by timestamp
-  db.collection("charities").orderBy("timestamp", "desc").onSnapshot((querySnapshot) => {
-      // Clear the existing cards from the card group
-      cardGroup.innerHTML = "";
-
-      // For each document in the query snapshot
-      querySnapshot.forEach((doc) => {
-          // Extract the data for the document
-          const data = doc.data();
-          // Clone the card template element
-          const card = cardTemplate.content.cloneNode(true);
-
-          // Update the card elements with the document data
-          card.querySelector(".card-title").textContent = data.title;
-          card.querySelector(".card-text").textContent = data.description;
-
-          // Display the first image of the post, if available
-          if (data.imageURLs && data.imageURLs.length > 0) {
-              card.querySelector(".card-img-top").src = data.imageURLs[0];
-          }
-
-          // Add the card to the card group
-          cardGroup.appendChild(card);
-      });
-  });
-}
-setupFirestoreListener()
 
 displayCardsDynamically("charities"); //input param is the name of the collection
