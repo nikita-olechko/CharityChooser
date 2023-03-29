@@ -60,37 +60,44 @@
       </div>
 
       <div class="row">
-        <div class="col col-auto" style="padding: 2rem 0rem 1rem 0rem;"><button class="btn btn-outline-light"
-            style="border: solid 1px black; background-color: rgb(27, 158, 75);" type="button">Edit Profile</button>
+        <div class="col col-auto" style="padding: 2rem 0rem 1rem 0rem; margin-left: 48px;">
+          <button class="btn btn-outline-light"
+            style="border: solid 1px black; background-color: rgb(27, 158, 75);" type="button" onclick="editUserInfo()">Edit Profile
+          </button>
+          <button class="btn btn-outline-light"
+            style="border: solid 1px black; background-color: rgb(27, 158, 75); margin-left: 35px;" type="button" onclick="saveUserInfo()">Save
+          </button>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col col-auto d-flex" style="padding: 1rem;">
-          <i class="fa-solid fa-phone" style="font-size: 20px;"></i>
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Phone number" aria-label="Phone number" style="margin-left: 20px">
-          </div>      
+      <fieldset class="mb-3" id="input-fields" disabled style="margin-left: 15px;">  
+        <div class="row">
+          <div class="col col-auto d-flex" style="padding: 1rem;">
+            <i class="fa-solid fa-phone" style="font-size: 20px;"></i>
+            <div class="input-group">
+              <input id="phone-input" type="text" class="form-control" placeholder="Phone number" aria-label="Phone number" style="margin-left: 20px">
+            </div>      
+          </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col col-auto d-flex" style="padding: 1rem;">
-          <i class="fa-solid fa-envelope" style="font-size: 20px;"></i>
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Example@gmail.com" aria-label="email" style="margin-left: 20px">
-          </div>    
+        <div class="row">
+          <div class="col col-auto d-flex" style="padding: 1rem;">
+            <i class="fa-solid fa-envelope" style="font-size: 20px;"></i>
+            <div class="input-group">
+              <input id="email-input" type="text" class="form-control" placeholder="Example@gmail.com" aria-label="email" style="margin-left: 20px">
+            </div>    
+          </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col col-auto d-flex" style="padding: 1rem;">
-          <i class="fa-solid fa-signature" style="font-size: 25px;"></i>
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Username" aria-label="name">
-          </div>    
+        <div class="row">
+          <div class="col col-auto d-flex" style="padding: 1rem;">
+            <i class="fa-solid fa-signature" style="font-size: 25px;"></i>
+            <div class="input-group">
+              <input id="name-input" type="text" class="form-control" placeholder="Username" aria-label="name">
+            </div>    
+          </div>
         </div>
-      </div>
+      </fieldset>
 
       <div class="row">
         <div class="col col-auto" style="padding: 1rem;">
