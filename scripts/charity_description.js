@@ -15,19 +15,22 @@ function displayCharityInformation() {
       charityAddress = charityInfo.Address;
       charityZipcode = charityInfo.zipcode;
       charityURL = charityInfo.url;
+      charityEvent = charityInfo.event;
+      charityContinent = charityInfo.Continent;
 
       document.getElementById("charityName").innerHTML = charityName;
       document.getElementById("charityDetails").innerHTML = charityDetails;
       document.getElementById("charityAddress").innerHTML = charityAddress;
       document.getElementById("charityURL").innerHTML = charityURL;
-
+      
       let anchorTag = document.getElementById("charityURL");
       anchorTag.textContent = charityURL;
       anchorTag.href = charityURL;
-
+      
       let imgEvent = document.querySelector(".charity-img");
       imgEvent.src = "../images/" + charityCode + ".jpg";
-
+      document.getElementById("charityEvent").innerHTML = charityEvent;
+      document.getElementById("charityContinent").innerHTML = charityContinent;
     });
 }
 

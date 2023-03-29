@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/filter.css">
     <link rel="stylesheet" href="styles/map.css">
+    <link rel="stylesheet" href="styles/footer.css">
 </head>
 
 <body>
@@ -168,31 +169,29 @@
 
     <!-- charity cards-->
     <div class="container">
-        <h2 style="text-align: center;"><br>Most popular charities<br></h2>
         <!-- Here is the container for cards  -->
         <div class="container">
             <div id="charities-go-here" class="row row-cols-auto">
+                <template id="charityCardTemplate" class="cardy">
+                    <div class="col-md-4">
+                        <div class="card shadow py-2 mx-2" style="width: 20rem">
+                            <img class="card-image card-img-top" src="..." alt="..." />
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Card title</h5>
+                                <p><span class="card-event">Types of donation</span></p>
+                                <p class="card-text">
+                                    Short description about this charity
+                                </p>
+                                <a class="button btn btn-success card-href">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </template>
             </div>
         </div>
     </div>
 
-    <template id="charityCardTemplate" class="cardy">
-        <div class="col-md-4">
-            <div class="card shadow py-2 mx-2" style="width: 20rem">
-                <img class="card-image card-img-top" src="..." alt="..." />
-                <div class="card-body text-center">
-                    <h5 class="card-title">Card title</h5>
-                    <p>We support
-                        <span class="card-type">Types of donation</span>
-                    </p>
-                    <p class="card-text">
-                        Short description about this charity
-                    </p>
-                    <a class="button btn btn-success card-href">Read more</a>
-                </div>
-            </div>
-        </div>
-    </template>
+
 
     <!--footer-->
     <nav id="footerPlaceholder"></nav>
@@ -202,6 +201,7 @@
     <script src="./scripts/main.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/filter.js"></script>
+    <script src="./scripts/search.js"></script>
 
 </body>
 
