@@ -413,6 +413,7 @@ function displayCardsDynamically(collection) {
         var docID = doc.id;
         var event = doc.data().event;
         var Continent = doc.data().continent;
+        var imageType = doc.data().imageType;
         var image = doc.data().image; //get image from firestore storage
         let newcard = cardTemplate.content.cloneNode(true);
 
@@ -420,18 +421,15 @@ function displayCardsDynamically(collection) {
         newcard.querySelector(".card-title").innerHTML = title;
         newcard.querySelector(".card-event").innerHTML = event;
         newcard.querySelector(".card-text").innerHTML = details;
-        newcard.querySelector(
-          ".card-image"
-        ).src = `./images/${charityCode}.jpg`; //Example: NV01.jpg
         newcard.querySelector("a").href ="charity_description.html?docID=" + docID;
-        newcard.querySelector(".card-image").src = `./images/${charityCode}.jpg`; //Example: NV01.jpg
-        newcard.querySelector(".card-image").src = image; //set image from firestore storage
-        newcard.querySelector("a").href = "charity_description.html?docID=" + docID;
 
-        //Optional: give unique ids to all elements for future use
-        // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
-        // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
-        // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+        //check if image is being fetched from storage or from code
+        if (imageType === 'code') {
+          newcard.querySelector(".card-image").src = `./images/${charityCode}.jpg`;
+        } else if (imageType === 'storage') {
+          newcard.querySelector(".card-image").src = image;
+        }
+        newcard.querySelector("a").href = "charity_description.html?docID=" + docID;
 
         //attach to gallery, Example: "hikes-go-here"
         document.getElementById(collection + "-go-here").appendChild(newcard);
