@@ -61,6 +61,7 @@
     <!--footer-->
 
     <nav id="footerPlaceholder"></nav>
+
     <section class="vh-60" style="padding-top: 10rem; padding-bottom: 10rem;">
       <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -69,100 +70,103 @@
 
             <div class="card" style="border-radius: 15px">
               <div class="card-body">
-                <div class="row align-items-center pt-4 pb-3">
-                  <div class="col-md-3 ps-5">
-                    <h6 class="mb-0">Charity name</h6>
-                  </div>
-                  <div class="col-md-9 pe-5">
-                    <input
-                      id="charity-name"
-                      type="text"
-                      class="form-control form-control-lg"
-                    />
-                  </div>
-                </div>
-
-                <hr class="mx-n3" />
-
-                <div class="row align-items-center py-3">
-                  <div class="col-md-3 ps-5">
-                    <h6 class="mb-0">Email address</h6>
-                  </div>
-                  <div class="col-md-9 pe-5">
-                    <input
-                      id="email"
-                      class="form-control form-control-lg"
-                      placeholder="example@gmail.com"
-                    />
-                  </div>
-                </div>
-
-                <hr class="mx-n3" />
-
-                <div class="row align-items-center py-3">
-                  <div class="col-md-3 ps-5">
-                    <h6 class="mb-0">Location</h6>
-                  </div>
-                  <div class="col-md-9 pe-5">
-                    <input
-                      id="country"
-                      class="form-control form-control-lg"
-                      placeholder="Country"
-                    />
-                    <br />
-                    <input
-                      id="city"
-                      class="form-control form-control-lg"
-                      placeholder="City"
-                    />
-                  </div>
-                </div>
-
-                <hr class="mx-n3" />
-
-                <div class="row align-items-center py-3">
-                  <div class="col-md-3 ps-5">
-                    <h6 class="mb-0">Charity description</h6>
-                  </div>
-                  <div class="col-md-9 pe-5">
-                    <textarea
-                      id="charity-description"
-                      class="form-control"
-                      rows="3"
-                      placeholder="Tell us about your charity"
-                    ></textarea>
-                  </div>
-                </div>
-
-                <hr class="mx-n3" />
-
-                <div class="row align-items-center py-3">
-                  <div class="col-md-3 ps-5">
-                    <h6 id="upload-image" class="mb-0">Upload image</h6>
-                  </div>
-                  <div class="col-md-9 pe-5">
-                    <input
-                      class="form-control form-control-lg"
-                      id="image-input"
-                      type="file"
-                    />
-                    <div class="small text-muted mt-2">
-                      Upload image (PNG) Max file size 50 MB
+                <form id="charity-registration-form">
+                  <div class="row align-items-center pt-4 pb-3">
+                    <div class="col-md-3 ps-5">
+                      <h6 class="mb-0">Charity name</h6>
+                    </div>
+                    <div class="col-md-9 pe-5">
+                      <input
+                        id="charity-name"
+                        type="text"
+                        class="form-control form-control-lg"
+                      />
                     </div>
                   </div>
-                </div>
 
-                <hr class="mx-n3" />
+                  <hr class="mx-n3" />
 
-                <div class="px-5 py-4">
-                  <button
-                    id="submit-button"
-                    type="submit"
-                    class="btn btn-primary btn-lg" style="color: white; background-color: #2ca440;"
-                  >
-                    Submit form
-                  </button>
-                </div>
+                  <div class="row align-items-center py-3">
+                    <div class="col-md-3 ps-5">
+                      <h6 class="mb-0">Email address</h6>
+                    </div>
+                    <div class="col-md-9 pe-5">
+                      <input
+                        id="email"
+                        class="form-control form-control-lg"
+                        placeholder="example@gmail.com"
+                      />
+                    </div>
+                  </div>
+
+                  <hr class="mx-n3" />
+
+                  <div class="row align-items-center py-3">
+                    <div class="col-md-3 ps-5">
+                      <h6 class="mb-0">Location</h6>
+                    </div>
+                    <div class="col-md-9 pe-5">
+                      <input
+                        id="country"
+                        class="form-control form-control-lg"
+                        placeholder="Country"
+                      />
+                      <br />
+                      <input
+                        id="city"
+                        class="form-control form-control-lg"
+                        placeholder="City"
+                      />
+                    </div>
+                  </div>
+
+                  <hr class="mx-n3" />
+
+                  <div class="row align-items-center py-3">
+                    <div class="col-md-3 ps-5">
+                      <h6 class="mb-0">Charity description</h6>
+                    </div>
+                    <div class="col-md-9 pe-5">
+                      <textarea
+                        id="charity-description"
+                        class="form-control"
+                        rows="3"
+                        placeholder="Tell us about your charity"
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <hr class="mx-n3" />
+
+                  <div class="row align-items-center py-3">
+                    <div class="col-md-3 ps-5">
+                      <h6 id="upload-image" class="mb-0">Upload image</h6>
+                    </div>
+                    <div class="col-md-9 pe-5">
+                      <input
+                        class="form-control form-control-lg"
+                        id="mypic-input"
+                        accept="image/*"
+                        type="file"
+                      />
+                      <div class="small text-muted mt-2">
+                        Upload image (PNG) Max file size 50 MB
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr class="mx-n3" />
+
+                  <div class="px-5 py-4">
+                    <button
+                      id="submit-button"
+                      type="submit"
+                      class="btn btn-primary btn-lg" style="color: white; background-color: #2ca440;"
+                    >
+                      Submit form
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -172,7 +176,7 @@
 
     <!-- js functions of your own -->
     <script src="./scripts/firebaseAPI_DTC_16.js"></script>
-    <script src="./scripts/main.js"></script>
+    <!-- <script src="./scripts/main.js"></script> -->
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/filter.js"></script>
     <script src="./scripts/register.js"></script>

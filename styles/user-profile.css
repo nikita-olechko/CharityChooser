@@ -18,3 +18,28 @@ h6 {
   margin-left: 50px;
   margin-bottom: 0px;
 }
+
+.modal {
+  padding: 1em;
+  max-width: 50ch;
+  max-height: 30ch;
+}
+
+.close-button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  color: white;
+  background-color: rgb(27, 158, 75);
+  border: solid 1px black;
+  border-radius: 5px;
+}
+
+.open-button {
+  color: white;
+  background-color: rgb(27, 158, 75);
+  border: solid 1px black;
+  border-radius: 5px;
+}
