@@ -11,3 +11,10 @@ input {
   align-items: center;
   margin-right: 10px;
 }
+
+h6 {
+  font-weight: bolder;
+  font-size: 0.9rem;
+  margin-left: 50px;
+  margin-bottom: 0px;
+}
