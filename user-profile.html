@@ -50,7 +50,6 @@
       <div class="col" style="padding: 1rem; background-color: rgb(27, 158, 75);
         border: 2px solid #fff; color: #fff;">
         <i class="fa-solid fa-user fa-8x d-flex justify-content-center"></i>
-
       </div>
     </div>
 
@@ -70,9 +69,20 @@
         </div>
       </div>
 
-      <fieldset class="mb-3" id="input-fields" disabled style="margin-left: 15px;">  
+      <fieldset class="mb-3" id="input-fields" disabled style="margin-left: 20px;"> 
         <div class="row">
-          <div class="col col-auto d-flex" style="padding: 1rem;">
+          <h6>Username</h6>
+          <div class="col col-auto d-flex" style="margin-bottom: 35px;">
+            <i class="fa-solid fa-signature" style="font-size: 25px;"></i>
+            <div class="input-group">
+              <input id="name-input" type="text" class="form-control" placeholder="Username" aria-label="name">
+            </div>    
+          </div>
+        </div> 
+
+        <div class="row">
+          <h6>Phone number</h6>
+          <div class="col col-auto d-flex" style="margin-bottom: 35px;">
             <i class="fa-solid fa-phone" style="font-size: 20px;"></i>
             <div class="input-group">
               <input id="phone-input" type="text" class="form-control" placeholder="Phone number" aria-label="Phone number" style="margin-left: 20px">
@@ -81,20 +91,11 @@
         </div>
 
         <div class="row">
-          <div class="col col-auto d-flex" style="padding: 1rem;">
-            <i class="fa-solid fa-envelope" style="font-size: 20px;"></i>
-            <div class="input-group">
-              <input id="email-input" type="text" class="form-control" placeholder="Example@gmail.com" aria-label="email" style="margin-left: 20px">
-            </div>    
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col col-auto d-flex" style="padding: 1rem;">
-            <i class="fa-solid fa-signature" style="font-size: 25px;"></i>
-            <div class="input-group">
-              <input id="name-input" type="text" class="form-control" placeholder="Username" aria-label="name">
-            </div>    
+          <h6>Country</h6>
+          <div class="col col-auto d-flex" style="margin-bottom: 35px">
+            <i class="fa-solid fa-flag" style="font-size: 20px;"></i>
+              <input id="country-input" type="text" class="form-control" placeholder="Enter your country" aria-label="country" style="margin-left: 20px">
+            </div>  
           </div>
         </div>
       </fieldset>
@@ -119,6 +120,6 @@
 
 </body>
 
-<script src="./scripts/user.js"></script>
+<script src="./scripts/user-profile.js"></script>
 
 </html>

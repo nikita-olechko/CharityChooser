@@ -11,7 +11,7 @@ function populateUserInfo() {
           currentUser.get()
               .then(userDoc => {
                   //get the data fields of the user
-                  var userEmail = userDoc.data().email;
+                  var userCountry = userDoc.data().country;
                   var userName = userDoc.data().name;
                   var userPhone = userDoc.data().phone;
 
@@ -19,8 +19,8 @@ function populateUserInfo() {
                   if (userName != null) {
                       document.getElementById("name-input").value = userName;
                   }
-                  if (userEmail != null) {
-                      document.getElementById("email-input").value = userEmail;
+                  if (userCountry != null) {
+                      document.getElementById("country-input").value = userCountry;
                   }
                   if (userPhone != null) {
                       document.getElementById("phone-input").value = userPhone;
@@ -39,12 +39,12 @@ function editUserInfo() {
 
 function saveUserInfo() {
   var userName = document.getElementById("name-input").value;
-  var userEmail = document.getElementById("email-input").value;
+  var userCountry = document.getElementById("country-input").value;
   var userPhone = document.getElementById("phone-input").value;
 
   currentUser.update({
       name: userName,
-      email: userEmail,
+      country: userCountry,
       phone: userPhone
   })
 
