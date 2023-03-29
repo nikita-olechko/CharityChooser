@@ -17,6 +17,8 @@ function displayCharityInformation() {
       charityURL = charityInfo.url;
       charityEvent = charityInfo.event;
       charityContinent = charityInfo.Continent;
+      imageFromStorage = charityInfo.image;
+      imageType = charityInfo.imageType;
 
       document.getElementById("charityName").innerHTML = charityName;
       document.getElementById("charityDetails").innerHTML = charityDetails;
@@ -27,8 +29,16 @@ function displayCharityInformation() {
       anchorTag.textContent = charityURL;
       anchorTag.href = charityURL;
       
-      let imgEvent = document.querySelector(".charity-img");
-      imgEvent.src = "../images/" + charityCode + ".jpg";
+      console.log("hi")
+      if (imageType === 'code') {
+        let imgEvent = document.querySelector(".charity-img");
+        imgEvent.src = "../images/" + charityCode + ".jpg";
+      } else if (imageType === 'storage') {
+        let imgEvent = document.querySelector(".charity-img");
+        imgEvent.src = imageFromStorage;
+      }
+      // let imgEvent = document.querySelector(".charity-img");
+      // imgEvent.src = "../images/" + charityCode + ".jpg";
       document.getElementById("charityEvent").innerHTML = charityEvent;
       document.getElementById("charityContinent").innerHTML = charityContinent;
     });
