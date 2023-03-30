@@ -33,7 +33,7 @@ function displayCharityInformation() {
       if (imageType === 'code') {
         let imgEvent = document.querySelector(".charity-img");
         imgEvent.src = "../images/" + charityCode + ".jpg";
-      } else if (imageType === 'storage') {
+      } else {
         let imgEvent = document.querySelector(".charity-img");
         imgEvent.src = imageFromStorage;
       }

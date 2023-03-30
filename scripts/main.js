@@ -426,7 +426,7 @@ function displayCardsDynamically(collection) {
         //check if image is being fetched from storage or from code
         if (imageType === 'code') {
           newcard.querySelector(".card-image").src = `./images/${charityCode}.jpg`;
-        } else if (imageType === 'storage') {
+        } else {
           newcard.querySelector(".card-image").src = image;
         }
         newcard.querySelector("a").href = "charity_description.html?docID=" + docID;
