@@ -1,0 +1,38 @@
+<!-- HTML code for the checkboxes -->
+<div id="checkboxes">
+    <label for="asia-checkbox">Asia</label>
+    <input type="checkbox" id="asia-checkbox" value="Asia">
+    <label for="north-america-checkbox">North America</label>
+    <input type="checkbox" id="north-america-checkbox" value="North America">
+    <!-- add more checkboxes for other continents or categories -->
+</div>
+
+<!-- HTML code for the events -->
+<div id="events">
+    <!-- event elements will be dynamically added or removed using JavaScript -->
+</div>
+
+<script>
+    // attach event listeners to the checkboxes
+    const checkboxes = document.querySelectorAll('#checkboxes input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', handleCheckboxChange);
+    });
+
+    function handleCheckboxChange(event) {
+        const category = event.target.value; // get the value of the checkbox
+        const events = document.querySelectorAll('#events .event'); // get all event elements
+
+        events.forEach(event => {
+            if (event.dataset.category === category) {
+                if (event.classList.contains('hidden')) {
+                    event.classList.remove(
+                    'hidden'); // remove the "hidden" class if the event matches the selected category
+                }// remove the "hidden" class if the event matches the selected category
+            } else {
+                event.classList.add(
+                'hidden'); // add the "hidden" class if the event doesn't match the selected category
+            }
+        });
+    }
+</script>
