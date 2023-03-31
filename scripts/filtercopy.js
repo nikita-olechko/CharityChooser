@@ -58,17 +58,9 @@ document.addEventListener("DOMContentLoaded", function () {
         var filteredCharities = ListOfFilteredCards(list_of_filters, allCharitiesPromise);
         displayFilteredCards(filteredCharities);
         event.preventDefault();
-        document.getElementById("filter-button").addEventListener("click", function () {
-            var popup = document.getElementById("filter-popup");
-            if (popup.style.display === "none") {
-                popup.style.display = "block";
-            } else {
-                popup.style.display = "none";
-            }
 
         });
     });
-});
 
 
 function getCheckedFilters() {
