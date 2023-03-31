@@ -18,11 +18,6 @@ const events = [
 const charities = db.collection('charities');
 console.log(charities);
 
-// const allCharities = charities.get().then(querySnapshot) => ({
-//             const documentsArray = [];
-//             querySnapshot.forEach((doc) => {
-//                 documentsArray.push(doc.data());
-//             });
 function getList() {
     return charities.get().then((querySnapshot) => {
         const documentsArray = [];
@@ -36,25 +31,6 @@ function getList() {
 
 getList();
 
-// allCharitiesPromise.then((result) => {
-//     console.log(`Promise resolved with result: ${result}`);
-//     console.log(`Promise resolved with value: ${result.value}`);
-//     const allCharities = result.value;
-
-// }).catch((error) => {
-//     console.log(`Promise rejected with error: ${error}`);
-// });
-// const allCharities = charities.get().then((querySnapshot) => {
-//     const documentsArray = [];
-//     querySnapshot.forEach((doc) => {
-//         documentsArray.push(doc.data());
-//     });
-//     console.log(documentsArray);
-// });
-
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("filter-button").addEventListener("click", function () {
         var popup = document.getElementById("filter-popup");
@@ -63,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             popup.style.display = "none";
         }
+        
     });
 });
 
@@ -72,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(list_of_filters);
         var filteredCharities = ListOfFilteredCards(list_of_filters, allCharitiesPromise);
         displayFilteredCards(filteredCharities);
+        event.preventDefault();
     });
 });
 
