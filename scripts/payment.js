@@ -123,7 +123,12 @@ function writePayment() {
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           })
           .then(() => {
+            currentUser.update({
+              donationHistory: firebase.firestore.FieldValue.arrayUnion(charityDocID)
+            })
+            .then(() => {
             window.location.href = "payment_completed.html";
+            })
           });
       });
     } else {

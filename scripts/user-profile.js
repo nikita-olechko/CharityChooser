@@ -1,4 +1,5 @@
 var currentUser;
+var donationHistory;
 
 function populateUserInfo() {
   firebase.auth().onAuthStateChanged(user => {
@@ -25,7 +26,29 @@ function populateUserInfo() {
                   if (userPhone != null) {
                       document.getElementById("phone-input").value = userPhone;
                   }
-              })
+                  donationHistory = userDoc.data().donationHistory; // get the donated charity reference
+                  const donationHistoryList = document.getElementById("donation-history");
+
+                  donationHistory.forEach(charityDocID => {
+                    console.log(charityDocID);
+                    const charityLink = document.createElement("a");
+                    charityLink.href = "charity_description.html?docID=" + charityDocID;
+                    console.log(charityLink)
+                    db.collection("charities").doc(charityDocID).get()
+                      .then(charityDoc => {
+                        const charityName = charityDoc.data().name;
+                        console.log(charityName)
+                        charityLink.textContent = charityName;
+                        donationHistoryList.appendChild(charityLink);
+                        donationHistoryList.appendChild(document.createElement("br"));
+                        console.log(donationHistoryList)
+                    }).catch(error => {
+                        console.log(error);
+                    });                  
+                });
+            }).catch(error => {
+                console.log(error);
+            });
       } else {
           console.log ("No user is signed in");
       }
@@ -41,21 +64,27 @@ function logout() {
 }
 
 function editUserInfo() {
-  document.getElementById("input-fields").disabled = false;
+  document.getElementById("name-input").disabled = false;
+  document.getElementById("country-input").disabled = false;
+  document.getElementById("phone-input").disabled = false;
+
+  console.log("edit button clicked");
 }
 
 function saveUserInfo() {
   var userName = document.getElementById("name-input").value;
   var userCountry = document.getElementById("country-input").value;
   var userPhone = document.getElementById("phone-input").value;
+  console.log("save button clicked")
 
   currentUser.update({
       name: userName,
       country: userCountry,
       phone: userPhone
   })
-
-  document.getElementById("input-fields").disabled = true;
+  document.getElementById("name-input").disabled = true;
+  document.getElementById("country-input").disabled = true;
+  document.getElementById("phone-input").disabled = true;
 }
 
 const modal = document.querySelector('.modal');
