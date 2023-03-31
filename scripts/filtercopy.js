@@ -39,7 +39,15 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             popup.style.display = "none";
         }
-        
+
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("Cancel-Filters").addEventListener("click", function () {
+        var popup = document.getElementById("filter-popup");
+        popup.style.display = "none";
+        event.preventDefault();
     });
 });
 
@@ -50,6 +58,15 @@ document.addEventListener("DOMContentLoaded", function () {
         var filteredCharities = ListOfFilteredCards(list_of_filters, allCharitiesPromise);
         displayFilteredCards(filteredCharities);
         event.preventDefault();
+        document.getElementById("filter-button").addEventListener("click", function () {
+            var popup = document.getElementById("filter-popup");
+            if (popup.style.display === "none") {
+                popup.style.display = "block";
+            } else {
+                popup.style.display = "none";
+            }
+
+        });
     });
 });
 
@@ -80,7 +97,7 @@ function filterEvents(list_of_filters) {
     var EventFilters = [];
     for (var i = 0; i < list_of_filters.length; i++) {
         if (events.includes(list_of_filters[i]['id'])) {
-            EventFilters.push(list_of_filters[i]);
+            EventFilters.push(list_of_filters[i]['id']);
         }
     }
     return EventFilters;
@@ -91,15 +108,22 @@ function ListOfFilteredCards(list_of_filters, allCharities) {
     var continentFilters = filterContinents(list_of_filters);
     var EventFilters = filterEvents(list_of_filters);
     for (let i = 0; i < allCharities.length; i++) {
-        if (continentFilters.includes(allCharities[i].Continent)) {
+        if (continentFilters.length > 0) {
+            if (continentFilters.includes(allCharities[i].Continent)) {
+                if (EventFilters.length > 0 && EventFilters.includes(allCharities[i].event)) {
+                    list_of_filtered_charities.push(allCharities[i]);
+                } else if (EventFilters.length == 0) {
+                    list_of_filtered_charities.push(allCharities[i]);
+                }
+            }
+        } else {
             if (EventFilters.length > 0 && EventFilters.includes(allCharities[i].event)) {
                 list_of_filtered_charities.push(allCharities[i]);
-            }
-            else if (EventFilters.length == 0) {
+            } else {
                 list_of_filtered_charities.push(allCharities[i]);
             }
         }
-        
+
     }
     return list_of_filtered_charities;
 }
