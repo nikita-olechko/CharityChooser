@@ -27,9 +27,16 @@ function populateUserInfo() {
                   }
               })
       } else {
-          // No user is signed in.
           console.log ("No user is signed in");
       }
+  });
+}
+
+function logout() {
+  firebase.auth().signOut().then(function() {
+      window.location.href = "index.html";
+  }).catch(function(error) {
+      console.log("Error signing out");
   });
 }
 
