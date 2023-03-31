@@ -9,7 +9,6 @@ function getCharityName(id) {
       document.getElementById("charityName").innerHTML = charityName;
     });
 }
-
 getCharityName(charityDocID);
 
 const donationButtons = document.querySelectorAll(".donation-amount");
@@ -24,13 +23,11 @@ donationButtons.forEach((button) => {
     donationInput.disabled = true;
   });
 });
-
 // Add event listener to the other button
 donationOtherButton.addEventListener("click", () => {
   donationInput.value = "";
   donationInput.disabled = false;
 });
-
 // Add event listener to the input field to format value with dollar sign and check for 0 value
 donationInput.addEventListener("input", () => {
   const value = donationInput.value;
@@ -64,6 +61,7 @@ function writePayment() {
   let CC_number = document.getElementById("card_number").value;
   let CC_cvv = document.getElementById("card_cvv").value;
   let CC_expiration = document.getElementById("card_expiration").value;
+  let donationAmount = document.getElementById("donationAmount").value;
 
   console.log(
     Firstname,
@@ -121,6 +119,7 @@ function writePayment() {
             card_number: CC_number,
             card_cvv: CC_cvv,
             card_expiration: CC_expiration,
+            donation_amount: donationAmount,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           })
           .then(() => {
