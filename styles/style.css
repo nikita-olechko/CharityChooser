@@ -164,7 +164,10 @@ footer {
     .search-bar {
       padding: 7px;
     }
+
   }
+
+
 
 
 /* large screen */
@@ -172,4 +175,15 @@ footer {
     .mobile {
       display: none;
     }
+}
+
+.details-z-index{
+  z-index: 9;
+}
+
+.extra-filter-padding{
+  padding-top: 100px;
+  margin-top: 50px;
+  /* padding-right: 30px; */
+  margin-right: 30px;
 }
