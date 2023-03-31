@@ -67,6 +67,7 @@ function editUserInfo() {
   document.getElementById("name-input").disabled = false;
   document.getElementById("country-input").disabled = false;
   document.getElementById("phone-input").disabled = false;
+
   console.log("edit button clicked");
 }
 
@@ -81,8 +82,9 @@ function saveUserInfo() {
       country: userCountry,
       phone: userPhone
   })
-
-  document.getElementById("input-fields").setAttribute("disabled", "true");
+  document.getElementById("name-input").disabled = true;
+  document.getElementById("country-input").disabled = true;
+  document.getElementById("phone-input").disabled = true;
 }
 
 const modal = document.querySelector('.modal');
