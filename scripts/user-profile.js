@@ -64,13 +64,17 @@ function logout() {
 }
 
 function editUserInfo() {
-  document.getElementById("input-fields").disabled = false;
+  document.getElementById("name-input").disabled = false;
+  document.getElementById("country-input").disabled = false;
+  document.getElementById("phone-input").disabled = false;
+  console.log("edit button clicked");
 }
 
 function saveUserInfo() {
   var userName = document.getElementById("name-input").value;
   var userCountry = document.getElementById("country-input").value;
   var userPhone = document.getElementById("phone-input").value;
+  console.log("save button clicked")
 
   currentUser.update({
       name: userName,
@@ -78,7 +82,7 @@ function saveUserInfo() {
       phone: userPhone
   })
 
-  document.getElementById("input-fields").disabled = true;
+  document.getElementById("input-fields").setAttribute("disabled", "true");
 }
 
 const modal = document.querySelector('.modal');
