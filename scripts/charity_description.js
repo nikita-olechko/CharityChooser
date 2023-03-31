@@ -24,6 +24,8 @@ function displayCharityInformation() {
       document.getElementById("charityDetails").innerHTML = charityDetails;
       document.getElementById("charityAddress").innerHTML = charityAddress;
       document.getElementById("charityURL").innerHTML = charityURL;
+      document.getElementById("charityContinent").innerHTML = charityContinent;
+      document.getElementById("charityEvent").innerHTML = charityEvent;
       
       let anchorTag = document.getElementById("charityURL");
       anchorTag.textContent = charityURL;
