@@ -22,31 +22,31 @@
 <!-- Footer -->
 <footer class=" text-center text-white" style="background-color:#5bcd7d;">
   <div class="container p-4">
-    <section class="">
+    <section class="newsletter">
       <form action="">
-        <div class="row d-flex justify-content-center">
-          <div class="col-auto">
+        <div class="row hideAfterSub d-flex justify-content-center">
+          <div class="col-auto hideAfterSub">
             <p class="pt-2">
               <strong>Sign up for our newsletter</strong>
             </p>
           </div>
 
-          <div class="col-md-5 col-12">
+          <div class="col-md-5 col-12 hideAfterSub">
             <!-- Email input -->
             <div class="form-outline form-white mb-4">
               <input type="email" id="form5Example2" class="form-control" />
               <label class="form-label" for="form5Example2">Email address</label>
             </div>
-            <p id="login-feedback" class="text-danger" style="display:none;">Please log in first.</p>
           </div>
 
-          <div class="col-auto">
+          <div class="col-auto hideAfterSub">
             <!-- Submit button -->
-            <button type="submit" class="btn btn-outline-light mb-4">
+            <button id="subscribe-button" type="submit" class="btn btn-outline-light mb-4">
               Subscribe
             </button>
           </div>
         </div>
+        <div><p id="subscribe-feedback"></p></p></div>
       </form>
     </section>
     <!-- About us text -->
