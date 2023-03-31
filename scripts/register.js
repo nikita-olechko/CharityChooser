@@ -25,19 +25,19 @@ async function savePost(event) {
   event.preventDefault();
   const charityName = document.getElementById("charity-name").value;
   const email = document.getElementById("email").value;
-  const country = document.getElementById("country").value;
-  const city = document.getElementById("city").value;
+  const continent = document.getElementById("Continent").value;
+  const eventType = document.getElementById("Event").value;
   const charityDescription = document.getElementById("charity-description").value;
 
-  if (charityName && email && country && city && charityDescription && ImageFile) {
+  if (charityName && email && continent && eventType && charityDescription && ImageFile) {
     firebase.auth().onAuthStateChanged(async function (user) {
       if (user) {
         const charityData = {
           owner: user.uid,
           name: charityName,
           email: email,
-          country: country,
-          city: city,
+          Continent: continent,
+          event: eventType,
           details: charityDescription,
           last_updated: firebase.firestore.FieldValue.serverTimestamp()
         };

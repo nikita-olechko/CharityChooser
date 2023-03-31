@@ -106,19 +106,48 @@
                       <h6 class="mb-0">Location</h6>
                     </div>
                     <div class="col-md-9 pe-5">
-                      <input
-                        id="country"
-                        class="form-control form-control-lg"
-                        placeholder="Country"
-                      />
-                      <br />
-                      <input
-                        id="city"
-                        class="form-control form-control-lg"
-                        placeholder="City"
-                      />
+                      <div class="row">
+                        <div class="col-6 col-md-4">
+                          <label for="Continent" class="form-label">Continent</label>
+                          <select class="form-select" id="Continent" required>
+                            <option value="">Select an option</option>
+                            <option>Africa</option>
+                            <option>Asia</option>
+                            <option>Australia</option>
+                            <option>Europe</option>
+                            <option>North America</option>
+                            <option>South America</option>
+                          </select>
+                          <div class="invalid-feedback">
+                            Please provide a valid state.
+                          </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                          <label for="Event" class="form-label">Event</label>
+                          <select class="form-select" id="Event" required>
+                            <option value="">Select an option</option>
+                            <option>Flood</option>
+                            <option>Cyclone</option>
+                            <option>Earthquake</option>
+                            <option>Hurricane</option>
+                            <option>Wildfire</option>
+                            <option>Heat Wave</option>
+                            <option>Transportation Disruption</option>
+                            <option>Avalanche</option>
+                            <option>Drought</option>
+                            <option>Oil Spill</option>
+                            <option>Landslide</option>
+                            <option>Sharknado</option>
+                          </select>
+                          <div class="invalid-feedback">
+                            Please provide a valid state.
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
+                  
+                  
 
                   <hr class="mx-n3" />
 
