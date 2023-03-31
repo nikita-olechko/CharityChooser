@@ -1,4 +1,5 @@
 var currentUser;
+var donationHistory;
 
 function populateUserInfo() {
   firebase.auth().onAuthStateChanged(user => {
@@ -25,7 +26,29 @@ function populateUserInfo() {
                   if (userPhone != null) {
                       document.getElementById("phone-input").value = userPhone;
                   }
-              })
+                  donationHistory = userDoc.data().donationHistory; // get the donated charity reference
+                  const donationHistoryList = document.getElementById("donation-history");
+
+                  donationHistory.forEach(charityDocID => {
+                    console.log(charityDocID);
+                    const charityLink = document.createElement("a");
+                    charityLink.href = "charity_description.html?docID=" + charityDocID;
+                    console.log(charityLink)
+                    db.collection("charities").doc(charityDocID).get()
+                      .then(charityDoc => {
+                        const charityName = charityDoc.data().name;
+                        console.log(charityName)
+                        charityLink.textContent = charityName;
+                        donationHistoryList.appendChild(charityLink);
+                        donationHistoryList.appendChild(document.createElement("br"));
+                        console.log(donationHistoryList)
+                    }).catch(error => {
+                        console.log(error);
+                    });                  
+                });
+            }).catch(error => {
+                console.log(error);
+            });
       } else {
           console.log ("No user is signed in");
       }
