@@ -22,7 +22,6 @@ newsletterSection.addEventListener('submit', function(event) {
       newsLetterItemsToHide[i].style.display = 'none';
     }
     subscribeFeedback.innerHTML = "You've subscribed to our newsletter!";
-    subscribeFeedback.style.padding = '1rem';
     console.log("test")
     emailInput.value = '';
   } 
