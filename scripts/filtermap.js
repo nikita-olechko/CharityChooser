@@ -13,7 +13,7 @@ const events = [
     'Oil Spill', 'Landslide', 'Sharknado'
 ]
 
-var allEventsPromise;
+var allCharitiesPromise;
 
 const eventsCollection = db.collection('events');
 console.log(eventsCollection);
@@ -25,7 +25,7 @@ function getList() {
             documentsArray.push(doc.data());
         });
         console.log(documentsArray);
-        allEventsPromise = documentsArray;
+        allCharitiesPromise = documentsArray;
     });
 }
 
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("Apply-Filters").addEventListener("click", function () {
         var list_of_filters = getCheckedFilters();
-        var filteredEvents = ListOfFilteredCards(list_of_filters, allEventsPromise);
+        var filteredEvents = ListOfFilteredCards(list_of_filters, allCharitiesPromise);
         // Empty the map
         $("#map").empty();
         showFilteredEventsOnMap(filteredEvents);
@@ -150,80 +150,80 @@ function showFilteredEventsOnMap(list_of_filtered_events) {
 
                 //READING information from filtered events
                 list_of_filtered_events.forEach(doc => {
-   
-                        // get hike Coordinates
-                        lat = doc.data().lat;
-                        lng = doc.data().lng;
-                        console.log(lat, lng);
-                        coordinates = [lng, lat];
-                        console.log(coordinates);
-                        //read name and the details of hike
-                        event_name = doc.data().name; // Event Name
-                        preview = doc.data().details; // Text Preview
+
+                    // get hike Coordinates
+                    lat = doc.data().lat;
+                    lng = doc.data().lng;
+                    console.log(lat, lng);
+                    coordinates = [lng, lat];
+                    console.log(coordinates);
+                    //read name and the details of hike
+                    event_name = doc.data().name; // Event Name
+                    preview = doc.data().details; // Text Preview
 
 
-                        // Pushes information into the features array
-                        features.push({
-                            'type': 'Feature',
-                            'properties': {
-                                'description': `<strong>${event_name}</strong><p>${preview}</p> <br> <a href="/main.html?id=${doc.id}" target="" title="Opens in a new window"><button class="button btn btn-success card-href">Find Charities</button></a>`
-                            },
-                            'geometry': {
-                                'type': 'Point',
-                                'coordinates': coordinates
-                            }
-                        });
-                    })
-
-                    // Adds features as a source to the map
-                    map.addSource('places', {
-                        'type': 'geojson',
-                        'data': {
-                            'type': 'FeatureCollection',
-                            'features': features
+                    // Pushes information into the features array
+                    features.push({
+                        'type': 'Feature',
+                        'properties': {
+                            'description': `<strong>${event_name}</strong><p>${preview}</p> <br> <a href="/main.html?id=${doc.id}" target="" title="Opens in a new window"><button class="button btn btn-success card-href">Find Charities</button></a>`
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': coordinates
                         }
-                    });
-
-                    // Creates a layer above the map displaying the pins
-                    map.addLayer({
-                        'id': 'places',
-                        'type': 'symbol',
-                        'source': 'places',
-                        'layout': {
-                            'icon-image': 'eventpin', // Pin Icon
-                            'icon-size': 0.1, // Pin Size
-                            'icon-allow-overlap': true // Allows icons to overlap
-                        }
-                    });
-
-                    // Map On Click function that creates a popup, displaying previously defined information from "events" collection in Firestore
-                    map.on('click', 'places', (e) => {
-                        // Copy coordinates array.
-                        const coordinates = e.features[0].geometry.coordinates.slice();
-                        const description = e.features[0].properties.description;
-
-                        // Ensure that if the map is zoomed out such that multiple copies of the feature are visible, the popup appears over the copy being pointed to.
-                        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-                        }
-
-                        new mapboxgl.Popup()
-                            .setLngLat(coordinates)
-                            .setHTML(description)
-                            .addTo(map);
-                    });
-
-                    // Change the cursor to a pointer when the mouse is over the places layer.
-                    map.on('mouseenter', 'places', () => {
-                        map.getCanvas().style.cursor = 'pointer';
-                    });
-
-                    // Defaults cursor when not hovering over the places layer
-                    map.on('mouseleave', 'places', () => {
-                        map.getCanvas().style.cursor = '';
                     });
                 })
 
-            });
-    
+                // Adds features as a source to the map
+                map.addSource('places', {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'FeatureCollection',
+                        'features': features
+                    }
+                });
+
+                // Creates a layer above the map displaying the pins
+                map.addLayer({
+                    'id': 'places',
+                    'type': 'symbol',
+                    'source': 'places',
+                    'layout': {
+                        'icon-image': 'eventpin', // Pin Icon
+                        'icon-size': 0.1, // Pin Size
+                        'icon-allow-overlap': true // Allows icons to overlap
+                    }
+                });
+
+                // Map On Click function that creates a popup, displaying previously defined information from "events" collection in Firestore
+                map.on('click', 'places', (e) => {
+                    // Copy coordinates array.
+                    const coordinates = e.features[0].geometry.coordinates.slice();
+                    const description = e.features[0].properties.description;
+
+                    // Ensure that if the map is zoomed out such that multiple copies of the feature are visible, the popup appears over the copy being pointed to.
+                    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                    }
+
+                    new mapboxgl.Popup()
+                        .setLngLat(coordinates)
+                        .setHTML(description)
+                        .addTo(map);
+                });
+
+                // Change the cursor to a pointer when the mouse is over the places layer.
+                map.on('mouseenter', 'places', () => {
+                    map.getCanvas().style.cursor = 'pointer';
+                });
+
+                // Defaults cursor when not hovering over the places layer
+                map.on('mouseleave', 'places', () => {
+                    map.getCanvas().style.cursor = '';
+                });
+            })
+
+    });
+
 }

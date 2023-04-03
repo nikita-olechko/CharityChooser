@@ -13,19 +13,18 @@ const events = [
     'Oil Spill', 'Landslide', 'Sharknado'
 ]
 
-var allEventsPromise;
+var allCharitiesPromise;
 
 const charities = db.collection('charities');
-console.log(eventsCollection);
 
 function getList() {
-    return eventsCollection.get().then((querySnapshot) => {
+    return charities.get().then((querySnapshot) => {
         const documentsArray = [];
         querySnapshot.forEach((doc) => {
             documentsArray.push(doc.data());
         });
         console.log(documentsArray);
-        allEventsPromise = documentsArray;
+        allCharitiesPromise = documentsArray;
     });
 }
 
@@ -54,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("Apply-Filters").addEventListener("click", function () {
         var list_of_filters = getCheckedFilters();
-        var filteredCharities = ListOfFilteredCards(list_of_filters, allEventsPromise);
+        var filteredCharities = ListOfFilteredCards(list_of_filters, allCharitiesPromise);
         displayFilteredCards(filteredCharities);
         event.preventDefault();
 
