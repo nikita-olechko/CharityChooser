@@ -38,12 +38,11 @@ function showEventsOnMap() {
                         event_name = doc.data().name; // Event Name
                         preview = doc.data().details; // Text Preview
 
-
                         // Pushes information into the features array
                         features.push({
                             'type': 'Feature',
                             'properties': {
-                                'description': `<strong>${event_name}</strong><p>${preview}</p> <br> <a href="/main.html?id=${doc.id}" class="pinnedEvent" target="" title="Opens in a new window"><button onclick="onEventSelection()" id="eventButton" class="button btn btn-success card-href">Find Charities</button></a>`
+                                'description': `<strong>${event_name}</strong><p>${preview}</p> <br> <a href="/main.html?id=${doc.id}" class="pinnedEvent" target="" title="Opens in a new window"><button onclick="onEventSelection()" id="${doc.id}" class="button btn btn-success card-href event" name = "eventButton">Find Charities</button></a>`
                             },
                             'geometry': {
                                 'type': 'Point',
