@@ -3,7 +3,6 @@
 // initialize Firestore database if using it
 //--------------------------------------------
 //--------------------------------------------
-var allCharitiesPromise;
 const continents = [
     'North America', 'South America', 'Africa', 'Europe', 'Asia', 'Australia'
 ]
@@ -14,18 +13,19 @@ const events = [
     'Oil Spill', 'Landslide', 'Sharknado'
 ]
 
+var allEventsPromise;
 
 const charities = db.collection('charities');
-console.log(charities);
+console.log(eventsCollection);
 
 function getList() {
-    return charities.get().then((querySnapshot) => {
+    return eventsCollection.get().then((querySnapshot) => {
         const documentsArray = [];
         querySnapshot.forEach((doc) => {
             documentsArray.push(doc.data());
         });
         console.log(documentsArray);
-        allCharitiesPromise = documentsArray;
+        allEventsPromise = documentsArray;
     });
 }
 
@@ -54,13 +54,12 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("Apply-Filters").addEventListener("click", function () {
         var list_of_filters = getCheckedFilters();
-        console.log(list_of_filters);
-        var filteredCharities = ListOfFilteredCards(list_of_filters, allCharitiesPromise);
+        var filteredCharities = ListOfFilteredCards(list_of_filters, allEventsPromise);
         displayFilteredCards(filteredCharities);
         event.preventDefault();
 
-        });
     });
+});
 
 
 function getCheckedFilters() {
