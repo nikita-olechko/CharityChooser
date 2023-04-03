@@ -67,7 +67,7 @@
         </div>
 
         <div class="row">
-          <div class="col col-auto" style="padding: 2rem 0rem 1rem 0rem; margin-left: 9%;">
+          <div class="col col-auto" style="padding: 2rem 0rem 1rem 0rem; margin-left: 15%;">
             <button class="btn btn-outline-light"
               style="border: solid 1px black; background-color: rgb(27, 158, 75);" type="button" onclick="editUserInfo()">Edit Profile
             </button>
@@ -85,12 +85,6 @@
               <div class="input-group">
                 <input id="name-input" type="text" class="form-control" placeholder="Username" aria-label="name" disabled>
               </div>
-              
-              <div class="col col-auto d-flex" style="margin-left: 75px;">
-                <i class="fa-solid fa-history">&nbsp&nbsp donation-history</i>
-                <button id="view-list-button" class="button open-button">View list</button>
-              </div>  
-
             </div>
           </div> 
 
@@ -113,26 +107,24 @@
             </div>
           </div>
 
+          <div class="row">
+            <div class="col col-auto d-flex" style="margin-left: 25px;">
+              <i class="fa-solid fa-history">&nbsp&nbsp donation-history</i>
+              <button id="view-list-button" class="button open-button">View list</button>
+            </div> 
+          </div>
+
           <div class="row justify-content-center">
-            <div class="col col-auto" style="padding: 0.5rem">
+            <div class="col col-auto" style="padding: 0.5rem; margin-top: 20px;">
               <button id="logout" class="btn btn-outline-light"
                 style="background-color: rgb(27, 158, 75); border: solid 1px black;" type="submit" onclick="logout()">Log Out
               </button>
           </div>
         </fieldset>
-
-        <!-- <div class="row">
-          <div class="col col-auto" style="padding: 1rem;">
-            <i class="fa-solid fa-credit-card">&nbsp&nbsp payment-method</i>
-          </div>
-        </div> -->
-
       </div>
+    </div>
 
-        
-
-      </div>
-
+    <nav id="footerPlaceholder"></nav>
 </body>
 
 <script src="./scripts/user-profile.js"></script>
