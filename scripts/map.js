@@ -43,7 +43,7 @@ function showEventsOnMap() {
                         features.push({
                             'type': 'Feature',
                             'properties': {
-                                'description': `<strong>${event_name}</strong><p>${preview}</p> <br> <a href="/main.html?id=${doc.id}" target="" title="Opens in a new window"><button class="button btn btn-success card-href">Find Charities</button></a>`
+                                'description': `<strong>${event_name}</strong><p>${preview}</p> <br> <a href="/main.html?id=${doc.id}" class="pinnedEvent" target="" title="Opens in a new window"><button onclick="onEventSelection()" id="eventButton" class="button btn btn-success card-href">Find Charities</button></a>`
                             },
                             'geometry': {
                                 'type': 'Point',

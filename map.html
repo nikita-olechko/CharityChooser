@@ -66,95 +66,109 @@
             <div class="row">
                 <div id="filter-popup" class="col padding-bottom center-filter filter-header-padding" style="display: none;">
                     <div class="card_filter">
-                        <div class="container-fluid">
+                        <div class="container">
                             <!-- <h6>Filter Box</h6> -->
-                            <div class="row padding-top-bot">
-                                <h5 class="float-start">Continent</h5>
-                                <!-- Make this collapsable -->
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
-                                                    value="1"> North America</label></div>
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
-                                                    value="2"> South America</label></div>
+                            <div class="row padding-top">
+                                <details open="">
+                                    <summary>
+                                        <h6 class="float-start details-z-index">Continent</h6>
+                                    </summary>
+                                    <!-- Make this collapsable -->
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter"
+                                                        id="North America" value="1"> North America</label></div>
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter"
+                                                        id="South America" value="2"> South America</label></div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
-                                                    value="1"> Africa</label></div>
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
-                                                    value="2"> Europe</label></div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter"
+                                                        id="Africa" value="1"> Africa</label></div>
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter"
+                                                        id="Europe" value="2"> Europe</label></div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
-                                                    value="1"> Asia</label></div>
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
-                                                    value="2"> Australia</label></div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter"
+                                                        id="Asia" value="1"> Asia</label></div>
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter"
+                                                        id="Australia" value="2"> Australia</label></div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row padding-top-bot">
-                                <h5 class="float-start">Extreme Weather Event</h5>
 
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
-                                                    value="1"> Flood</label></div>
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
-                                                    value="2"> Hurricane</label></div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
-                                                    value="1"> Cyclone</label></div>
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
-                                                    value="2"> Wildfire</label></div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
-                                                    value="1"> Earthquake</label></div>
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
-                                                    value="2"> Heat Wave</label></div>
-                                    </div>
-                                </div>
                             </div>
+                            </details>
+                            <details>
+
+                                <summary>
+                                    <h6 class="float-start">Extreme Weather Event</h6>
+                                </summary>
+                                <div class="row padding-top">
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter"
+                                                        id="Flood" value="1"> Flood</label></div>
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter"
+                                                        id="Hurricane" value="2"> Hurricane</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter"
+                                                        id="Tornado" value="1"> Tornado</label></div>
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter"
+                                                        id="Wildfire" value="2"> Wildfire</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter"
+                                                        id="Earthquake" value="1"> Earthquake</label></div>
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter"
+                                                        id="Heat Wave" value="2"> Heat Wave</label></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter"
+                                                        id="Transportation Disruption" value="1"> Transportation
+                                                    Disruption</label></div>
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter"
+                                                        id="Oil Spill" value="2"> Oil Spill</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter"
+                                                        id="Drought" value="1"> Drought</label></div>
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter"
+                                                        id="Landslide" value="2"> Landslide</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter"
+                                                        id="Cyclone" value="1"> Cyclone</label></div>
+                                            <div class="padding-top-bot"><label><input type="checkbox" name="filter"
+                                                        id="Sharknado" value="2"> Sharknado</label></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
                             <div class="row">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
-                                                    value="1"> Transportation Disruption</label></div>
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
-                                                    value="2"> Oil Spill</label></div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
-                                                    value="1"> Earthquake</label></div>
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
-                                                    value="2"> Landslide</label></div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter1"
-                                                    value="1"> Drought</label></div>
-                                        <div class="padding-top-bot"><label><input type="checkbox" name="filter2"
-                                                    value="2"> Heat Wave</label></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row padding-top-bot filter-button-spacing">
-                                <div class="col flex-end padding-right"><a href=""><button
+                                <div class="col flex-end padding-right"><a href=""><button id="Cancel-Filters"
                                             class="button btn btn-success">Cancel</button></a></div>
-                                <div class="col flex-start padding-left"><a href=""><button class="button btn btn-success">Apply
-                                            Filters</button></a></div>
+                                <div class="col flex-start padding-left">
+                                    <a href="">
+                                        <button id="Apply-Filters" class="button btn btn-success">Apply
+                                            Filters</button></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -179,6 +193,6 @@
 
 <script src="./scripts/map.js"></script>
 <script src="./scripts/search.js" defer></script>
-<script src="./scripts/filtermain.js" defer></script>
+<script src="./scripts/mapEventSelection.js" defer></script>
 
 </html>
