@@ -14,7 +14,7 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-  </script>
+    </script>
 
   <!-------------------------------------------------------->
   <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
@@ -38,93 +38,101 @@
   <!-- Link to styles of your own -->
   <link rel="stylesheet" href="./styles/style.css">
   <link rel="stylesheet" href="./styles/user-profile.css">
+  <style>
+    .mobile_account {
+      color: #009578 !important;
+    }
+  </style>
 </head>
 
 <body>
   <!-- top nav bar-->
   <nav id="navbarPlaceholder"></nav>
 
-    <!-- user profile -->
-    <div class="container border" style="margin-top: 10rem;">
-      <div class="row justify-content-center">
-        <div class="col" style="padding: 1rem; background-color: rgb(27, 158, 75);
+  <!-- user profile -->
+  <div class="container border" style="margin-top: 10rem;">
+    <div class="row justify-content-center">
+      <div class="col" style="padding: 1rem; background-color: rgb(27, 158, 75);
           border: 2px solid #fff; color: #fff;">
-          <i class="fa-solid fa-user fa-8x d-flex justify-content-center"></i>
-        </div>
-      </div>
-
-      <!-- modal -->
-      <dialog class="modal" id="modal">
-        <h2><i class="fa-solid fa-ribbon"></i> Donation History <i class="fa-solid fa-ribbon"></i></h2>
-        <div id="donation-history"></div>
-        <button class="button close-button">close</button>
-      </dialog>
-      <!-- modal -->
-
-      <div class="row justify-content-center">
-        <div class="col">
-          <h3 class="d-flex justify-content-center"></h3>
-        </div>
-
-        <div class="row">
-          <div class="col col-auto" style="padding: 2rem 0rem 1rem 0rem; margin-left: 15%;">
-            <button class="btn btn-outline-light"
-              style="border: solid 1px black; background-color: rgb(27, 158, 75);" type="button" onclick="editUserInfo()">Edit Profile
-            </button>
-            <button class="btn btn-outline-light"
-              style="border: solid 1px black; background-color: rgb(27, 158, 75); margin-left: 35px;" type="button" onclick="saveUserInfo()">Save
-            </button>
-          </div>
-        </div>
-
-        <fieldset class="mb-3" id="input-fields" style="margin-left: 10%;"> 
-          <div class="row">
-            <h6>Username</h6>
-            <div class="col col-auto d-flex" style="margin-bottom: 35px;">
-              <i class="fa-solid fa-signature" style="font-size: 25px;"></i>
-              <div class="input-group">
-                <input id="name-input" type="text" class="form-control" placeholder="Username" aria-label="name" disabled>
-              </div>
-            </div>
-          </div> 
-
-          <div class="row">
-            <h6>Phone number</h6>
-            <div class="col col-auto d-flex" style="margin-bottom: 35px;">
-              <i class="fa-solid fa-phone" style="font-size: 20px;"></i>
-              <div class="input-group">
-                <input id="phone-input" type="text" class="form-control" placeholder="Phone number" style="margin-left: 20px" disabled>
-              </div>      
-            </div>
-          </div>
-
-          <div class="row">
-            <h6>Country</h6>
-            <div class="col col-auto d-flex" style="margin-bottom: 35px">
-              <i class="fa-solid fa-flag" style="font-size: 20px;"></i>
-                <input id="country-input" type="text" class="form-control" placeholder="Enter your country" style="margin-left: 20px" disabled>
-              </div>  
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col col-auto d-flex" style="margin-left: 25px;">
-              <i class="fa-solid fa-history">&nbsp&nbsp donation-history</i>
-              <button id="view-list-button" class="button open-button">View list</button>
-            </div> 
-          </div>
-
-          <div class="row justify-content-center">
-            <div class="col col-auto" style="padding: 0.5rem; margin-top: 20px;">
-              <button id="logout" class="btn btn-outline-light"
-                style="background-color: rgb(27, 158, 75); border: solid 1px black;" type="submit" onclick="logout()">Log Out
-              </button>
-          </div>
-        </fieldset>
+        <i class="fa-solid fa-user fa-8x d-flex justify-content-center"></i>
       </div>
     </div>
 
-    <nav id="footerPlaceholder"></nav>
+    <!-- modal -->
+    <dialog class="modal" id="modal">
+      <h2><i class="fa-solid fa-ribbon"></i> Donation History <i class="fa-solid fa-ribbon"></i></h2>
+      <div id="donation-history"></div>
+      <button class="button close-button">close</button>
+    </dialog>
+    <!-- modal -->
+
+    <div class="row justify-content-center">
+      <div class="col">
+        <h3 class="d-flex justify-content-center"></h3>
+      </div>
+
+      <div class="row">
+        <div class="col col-auto" style="padding: 2rem 0rem 1rem 0rem; margin-left: 15%;">
+          <button class="btn btn-outline-light" style="border: solid 1px black; background-color: rgb(27, 158, 75);"
+            type="button" onclick="editUserInfo()">Edit Profile
+          </button>
+          <button class="btn btn-outline-light"
+            style="border: solid 1px black; background-color: rgb(27, 158, 75); margin-left: 35px;" type="button"
+            onclick="saveUserInfo()">Save
+          </button>
+        </div>
+      </div>
+
+      <fieldset class="mb-3" id="input-fields" style="margin-left: 10%;">
+        <div class="row">
+          <h6>Username</h6>
+          <div class="col col-auto d-flex" style="margin-bottom: 35px;">
+            <i class="fa-solid fa-signature" style="font-size: 25px;"></i>
+            <div class="input-group">
+              <input id="name-input" type="text" class="form-control" placeholder="Username" aria-label="name" disabled>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <h6>Phone number</h6>
+          <div class="col col-auto d-flex" style="margin-bottom: 35px;">
+            <i class="fa-solid fa-phone" style="font-size: 20px;"></i>
+            <div class="input-group">
+              <input id="phone-input" type="text" class="form-control" placeholder="Phone number"
+                style="margin-left: 20px" disabled>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <h6>Country</h6>
+          <div class="col col-auto d-flex" style="margin-bottom: 35px">
+            <i class="fa-solid fa-flag" style="font-size: 20px;"></i>
+            <input id="country-input" type="text" class="form-control" placeholder="Enter your country"
+              style="margin-left: 20px" disabled>
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-auto d-flex" style="margin-left: 25px;">
+        <i class="fa-solid fa-history">&nbsp&nbsp donation-history</i>
+        <button id="view-list-button" class="button open-button">View list</button>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col col-auto" style="padding: 0.5rem; margin-top: 20px;">
+        <button id="logout" class="btn btn-outline-light"
+          style="background-color: rgb(27, 158, 75); border: solid 1px black;" type="submit" onclick="logout()">Log Out
+        </button>
+      </div>
+      </fieldset>
+    </div>
+  </div>
+
+  <nav id="footerPlaceholder"></nav>
 </body>
 
 <script src="./scripts/user-profile.js"></script>
