@@ -13,10 +13,9 @@ const events = [
     'Oil Spill', 'Landslide', 'Sharknado'
 ]
 
-var allEventsPromise;
+var allCharitiesPromise;
 
 const eventsCollection = db.collection('events');
-console.log(eventsCollection);
 
 function getList() {
     return eventsCollection.get().then((querySnapshot) => {
@@ -24,15 +23,31 @@ function getList() {
         querySnapshot.forEach((doc) => {
             documentsArray.push(doc.data());
         });
-        console.log(documentsArray);
-        allEventsPromise = documentsArray;
+        allCharitiesPromise = documentsArray;
     });
 }
+
+getList();
 
 console.log("mapEventSelection.js is running.");
 
 
-function onEventSelection() {
+function onEventSelection(event) {
     event.preventDefault();
-    
+    eventList = [];
+    // docID = document.getElementsByName("eventButton").id
+    console.log(docID)
+    button = String(document.getElementsByName("eventButton").inner_html);
+    console.log(button);
+    for (let i = 0; i < button.length; i++) {
+        let item = button[i].inner_html;
+        console.log(item);
+    }
+    // allEventsPromise.forEach(function (item) {
+    //     if (item.id == docID) {
+    //         eventList.push(item);
+    //     }
+    // });
+    // console.log($('#'+docID).val(docID));
+
 }

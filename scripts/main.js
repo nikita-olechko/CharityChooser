@@ -16,6 +16,71 @@ function insertNameFromFirestore() {
 }
 insertNameFromFirestore();
 
+
+
+
+function getEventID() {
+  console.log("id found");
+  var url = window.location.href;
+  var eventID = url.split("id=")[1];
+  console.log(eventID);
+  return eventID;
+}
+
+
+var allCharitiesPromise;
+var allEventsPromise;
+
+const eventsCollection = db.collection('events');
+const charitiesCollection = db.collection('charities');
+
+function getListCharities(charitiesCollection) {
+  charitiesCollection.get().then((querySnapshot) => {
+    var documentsArray = [];
+    querySnapshot.forEach((doc) => {
+      documentsArray.push(doc.data());
+    });
+    allCharitiesPromise = documentsArray;
+  });
+}
+
+function getListEvents() {
+  eventsCollection.get().then((querySnapshot) => {
+    var documentsArray = [];
+    querySnapshot.forEach((doc) => {
+      documentsArray.push(doc.data());
+    });
+    allEventsPromise = documentsArray;
+  });
+}
+
+getListCharities(charitiesCollection);
+getListEvents();
+
+function getEventContinentAndEvent() {
+  for (var i = 0; i < eventsCollection.length; i++) {
+    if (getEventID() == eventsCollection[i].id) {
+      const eventContinent = eventsCollection[i].continent;
+      const eventEvent = eventsCollection[i].event;
+    }
+  }
+}
+
+
+function getCharitiesByContinentAndEvent() {
+  var charitiesByContinentAndEvent = [];
+  for (var i = 0; i < allCharitiesPromise.length; i++) {
+    if (
+      allCharitiesPromise[i].Continent == eventContinent &&
+      allCharitiesPromise[i].event == eventEvent
+    ) {
+      charitiesByContinentAndEvent.push(allCharitiesPromise[i]);
+    }
+  }
+  return charitiesByContinentAndEvent;
+}
+
+
 function writeCharities() {
   //define a variable for the collection you want to create in Firestore to populate data
   var CharitiesRef = db.collection("charities");
@@ -29,8 +94,7 @@ function writeCharities() {
     Continent: "North America",
     event: "Hurricane",
     url: "https://hurricanerelieffund.org/",
-    details:
-      "The Hurricane Relief Fund provides aid to communities affected by hurricanes. We work with local partners to provide emergency shelter, food, water, and medical supplies to those impacted by the storm.",
+    details: "The Hurricane Relief Fund provides aid to communities affected by hurricanes. We work with local partners to provide emergency shelter, food, water, and medical supplies to those impacted by the storm.",
     last_updated: firebase.firestore.FieldValue.serverTimestamp(),
   });
   CharitiesRef.add({
@@ -42,8 +106,7 @@ function writeCharities() {
     Continent: "Asia",
     event: "Cyclone",
     url: "https://cyclonereliefnetwork.org/",
-    details:
-      "The Cyclone Relief Network is a non-profit organization that provides assistance to communities affected by cyclones. We work with local partners to provide emergency shelter, food, water, and medical supplies to those impacted by the storm.",
+    details: "The Cyclone Relief Network is a non-profit organization that provides assistance to communities affected by cyclones. We work with local partners to provide emergency shelter, food, water, and medical supplies to those impacted by the storm.",
     last_updated: firebase.firestore.FieldValue.serverTimestamp(),
   });
   CharitiesRef.add({
@@ -55,8 +118,7 @@ function writeCharities() {
     Continent: "North America",
     event: "Wildfire",
     url: "https://wildfirerecoveryfoundation.org/",
-    details:
-      "The Wildfire Recovery Foundation provides aid to communities affected by wildfires. We work with local partners to provide emergency shelter, food, water, and medical supplies to those impacted by the disaster.",
+    details: "The Wildfire Recovery Foundation provides aid to communities affected by wildfires. We work with local partners to provide emergency shelter, food, water, and medical supplies to those impacted by the disaster.",
     last_updated: firebase.firestore.FieldValue.serverTimestamp(),
   });
   CharitiesRef.add({
@@ -68,8 +130,7 @@ function writeCharities() {
     Continent: "North America",
     url: "https://www.handsofhope.org/",
     event: "Earthquake",
-    details:
-      "Hands of Hope provides shelter and support to families who have been affected by natural disasters. Our team of volunteers work tirelessly to provide basic necessities and resources to those in need.",
+    details: "Hands of Hope provides shelter and support to families who have been affected by natural disasters. Our team of volunteers work tirelessly to provide basic necessities and resources to those in need.",
     last_updated: firebase.firestore.FieldValue.serverTimestamp(),
   });
 
@@ -82,8 +143,7 @@ function writeCharities() {
     event: "Landslide",
     Continent: "North America",
     url: "https://www.thegivingtree.org/",
-    details:
-      "The Giving Tree provides educational and health resources to underprivileged children and families in rural areas. Our programs aim to break the cycle of poverty and promote self-sufficiency.",
+    details: "The Giving Tree provides educational and health resources to underprivileged children and families in rural areas. Our programs aim to break the cycle of poverty and promote self-sufficiency.",
     last_updated: firebase.firestore.FieldValue.serverTimestamp(),
   });
   CharitiesRef.add({
@@ -95,8 +155,7 @@ function writeCharities() {
     event: "Transportation Disruption",
     Continent: "South America",
     url: "https://www.childrenoftheandes.org/",
-    details:
-      "Children of the Andes is a non-profit organization that works to improve the lives of children and families living in poverty in the Andes Mountains region of Peru. We provide education, healthcare, and social services to help these communities break the cycle of poverty and achieve a brighter future.",
+    details: "Children of the Andes is a non-profit organization that works to improve the lives of children and families living in poverty in the Andes Mountains region of Peru. We provide education, healthcare, and social services to help these communities break the cycle of poverty and achieve a brighter future.",
     last_updated: firebase.firestore.FieldValue.serverTimestamp(),
   });
   CharitiesRef.add({
@@ -108,8 +167,7 @@ function writeCharities() {
     Continent: "Africa",
     event: "Flood",
     url: "https://www.wateraid.org/",
-    details:
-      "WaterAid is an international charity that focuses on providing clean water, decent toilets, and good hygiene to people in some of the world's poorest countries. We work with local partners to help communities take control of their own water supply and sanitation.",
+    details: "WaterAid is an international charity that focuses on providing clean water, decent toilets, and good hygiene to people in some of the world's poorest countries. We work with local partners to help communities take control of their own water supply and sanitation.",
     last_updated: firebase.firestore.FieldValue.serverTimestamp(),
   });
   CharitiesRef.add({
@@ -121,8 +179,7 @@ function writeCharities() {
     Continent: "Europe",
     event: "Oil Spill",
     url: "https://www.worldwildlife.org/",
-    details:
-      "WWF is a global conservation organization that aims to protect endangered species, their habitats, and the natural resources we all depend on. We work with governments, businesses, and communities to find sustainable solutions to the environmental challenges we face.",
+    details: "WWF is a global conservation organization that aims to protect endangered species, their habitats, and the natural resources we all depend on. We work with governments, businesses, and communities to find sustainable solutions to the environmental challenges we face.",
     last_updated: firebase.firestore.FieldValue.serverTimestamp(),
   });
   CharitiesRef.add({
@@ -134,8 +191,7 @@ function writeCharities() {
     Continent: "North America",
     event: "Wildfire",
     url: "https://www.greenpeace.org/",
-    details:
-      "Greenpeace is an independent campaigning organization that uses peaceful protest and creative communication to expose environmental problems and promote solutions that are essential to a green and peaceful future. We investigate, document, and expose environmental abuses, and work to champion solutions.",
+    details: "Greenpeace is an independent campaigning organization that uses peaceful protest and creative communication to expose environmental problems and promote solutions that are essential to a green and peaceful future. We investigate, document, and expose environmental abuses, and work to champion solutions.",
     last_updated: firebase.firestore.FieldValue.serverTimestamp(),
   });
   CharitiesRef.add({
@@ -147,8 +203,7 @@ function writeCharities() {
     Continent: "South America",
     event: "Hurricane",
     url: "https://www.savethechildren.org/",
-    details:
-      "Save the Children is a global charity that works to ensure that all children have the chance to grow up healthy, educated, and safe. We work in some of the toughest places in the world to reach the most vulnerable children and provide life-saving support when they need it most.",
+    details: "Save the Children is a global charity that works to ensure that all children have the chance to grow up healthy, educated, and safe. We work in some of the toughest places in the world to reach the most vulnerable children and provide life-saving support when they need it most.",
     last_updated: firebase.firestore.FieldValue.serverTimestamp(),
   });
   CharitiesRef.add({
@@ -160,8 +215,7 @@ function writeCharities() {
     Continent: "Asia",
     event: "Cyclone",
     url: "https://www.oxfam.org/",
-    details:
-      "Oxfam is a global organization that works to end the injustice of poverty. We help people build better lives for themselves, advocate for their rights, and work to create lasting change. Our programs focus on tackling poverty and inequality, promoting human rights, and responding to emergencies and crises.",
+    details: "Oxfam is a global organization that works to end the injustice of poverty. We help people build better lives for themselves, advocate for their rights, and work to create lasting change. Our programs focus on tackling poverty and inequality, promoting human rights, and responding to emergencies and crises.",
     last_updated: firebase.firestore.FieldValue.serverTimestamp(),
   });
 }
@@ -177,8 +231,7 @@ function writeEvents() {
     continent: "Asia",
     country: "China",
     event: "Flood",
-    details:
-      "In July 2019, the central province of Henan in China experienced heavy rainfall that caused severe flooding. The flooding affected over 13 million people, destroyed homes and buildings, and resulted in the deaths of over 300 people.",
+    details: "In July 2019, the central province of Henan in China experienced heavy rainfall that caused severe flooding. The flooding affected over 13 million people, destroyed homes and buildings, and resulted in the deaths of over 300 people.",
     date: "July 2019",
     lat: 33.882,
     lng: 113.614,
@@ -191,8 +244,7 @@ function writeEvents() {
     continent: "Europe",
     country: "Russia",
     event: "Wildfire",
-    details:
-      "In August 2021, wildfires broke out in the Siberian region of Russia. The wildfires were caused by a combination of lightning strikes, drought conditions, and human activity. The wildfires burned over 1 million hectares of land and caused significant air pollution in the region.",
+    details: "In August 2021, wildfires broke out in the Siberian region of Russia. The wildfires were caused by a combination of lightning strikes, drought conditions, and human activity. The wildfires burned over 1 million hectares of land and caused significant air pollution in the region.",
     date: "August 2021",
     lat: 60.0,
     lng: 105.0,
@@ -205,8 +257,7 @@ function writeEvents() {
     continent: "Asia",
     country: "Bangladesh",
     event: "Flood",
-    details:
-      "In September 2022, the Brahmaputra River in Bangladesh experienced severe erosion due to heavy monsoon rains. The erosion caused several villages to be submerged and over 10,000 people were displaced.",
+    details: "In September 2022, the Brahmaputra River in Bangladesh experienced severe erosion due to heavy monsoon rains. The erosion caused several villages to be submerged and over 10,000 people were displaced.",
     date: "September 2022",
     lat: 26.7069,
     lng: 88.4303,
@@ -219,8 +270,7 @@ function writeEvents() {
     continent: "Australia",
     country: "Australia",
     event: "Heatwave",
-    details:
-      "In January 2023, a severe heatwave struck southeastern Australia, with temperatures soaring above 40°C for several consecutive days. The heatwave caused power outages and led to an increased risk of bushfires in the region.",
+    details: "In January 2023, a severe heatwave struck southeastern Australia, with temperatures soaring above 40°C for several consecutive days. The heatwave caused power outages and led to an increased risk of bushfires in the region.",
     date: "January 2023",
     lat: -37.8136,
     lng: 144.9631,
@@ -233,8 +283,7 @@ function writeEvents() {
     continent: "Africa",
     country: "Nigeria",
     event: "Oil Spill",
-    details:
-      "In March 2016, an oil spill occurred in the Niger Delta region of Nigeria. The spill was caused by a pipeline leak and resulted in the contamination of several water bodies in the region, affecting the livelihoods of local fishermen and farmers.",
+    details: "In March 2016, an oil spill occurred in the Niger Delta region of Nigeria. The spill was caused by a pipeline leak and resulted in the contamination of several water bodies in the region, affecting the livelihoods of local fishermen and farmers.",
     date: "March 2016",
     lat: 4.8952,
     lng: 6.0548,
@@ -246,8 +295,7 @@ function writeEvents() {
     continent: "Asia",
     country: "Japan",
     event: "Heatwave",
-    details:
-      "In July 2017, Tokyo experienced an extreme heatwave with temperatures reaching over 40°C (104°F). The heatwave caused power outages and water shortages, and resulted in the deaths of over 200 people.",
+    details: "In July 2017, Tokyo experienced an extreme heatwave with temperatures reaching over 40°C (104°F). The heatwave caused power outages and water shortages, and resulted in the deaths of over 200 people.",
     date: "July 2017",
     lat: 35.6895,
     lng: 139.6917,
@@ -260,8 +308,7 @@ function writeEvents() {
     continent: "Asia",
     country: "Indonesia",
     event: "Flood",
-    details:
-      "In February 2019, heavy rainfall caused severe flooding in Jakarta. The flooding affected over 200,000 people and caused extensive damage to buildings and infrastructure.",
+    details: "In February 2019, heavy rainfall caused severe flooding in Jakarta. The flooding affected over 200,000 people and caused extensive damage to buildings and infrastructure.",
     date: "February 2019",
     lat: -6.2088,
     lng: 106.8456,
@@ -274,8 +321,7 @@ function writeEvents() {
     continent: "Asia",
     country: "China",
     event: "Landslide",
-    details:
-      "In August 2022, a massive landslide occurred in Sichuan province, China. The landslide destroyed several villages and caused the deaths of over 100 people.",
+    details: "In August 2022, a massive landslide occurred in Sichuan province, China. The landslide destroyed several villages and caused the deaths of over 100 people.",
     date: "August 2022",
     lat: 31.0424,
     lng: 103.3642,
@@ -288,8 +334,7 @@ function writeEvents() {
     continent: "Asia",
     country: "Russia",
     event: "Wildfire",
-    details:
-      "In July 2022, massive wildfires broke out in Siberia, Russia. The wildfires burned over 10 million hectares of forest and caused the deaths of several people.",
+    details: "In July 2022, massive wildfires broke out in Siberia, Russia. The wildfires burned over 10 million hectares of forest and caused the deaths of several people.",
     date: "July 2022",
     lat: 61.524,
     lng: 105.3188,
@@ -302,8 +347,7 @@ function writeEvents() {
     continent: "Australia",
     country: "Australia",
     event: "Drought",
-    details:
-      "In January 2021, New South Wales, Australia experienced a severe drought. The drought caused widespread water shortages and crop failures, and resulted in significant economic losses for the region.",
+    details: "In January 2021, New South Wales, Australia experienced a severe drought. The drought caused widespread water shortages and crop failures, and resulted in significant economic losses for the region.",
     date: "January 2021",
     lat: -33.8688,
     lng: 151.2093,
@@ -316,8 +360,7 @@ function writeEvents() {
     continent: "Africa",
     country: "Nigeria",
     event: "Oil Spill",
-    details:
-      "In December 2021, a major oil spill occurred in the Niger Delta region of Nigeria. The oil spill caused significant environmental damage and affected the livelihoods of local communities.",
+    details: "In December 2021, a major oil spill occurred in the Niger Delta region of Nigeria. The oil spill caused significant environmental damage and affected the livelihoods of local communities.",
     date: "December 2021",
     lat: 4.8771,
     lng: 6.2026,
@@ -329,8 +372,7 @@ function writeEvents() {
     continent: "Asia",
     country: "China",
     event: "Flood",
-    details:
-      "In June 2023, heavy rainfalls in the Yangtze River basin caused massive flooding in several provinces of China, including Hubei, Anhui, and Jiangxi. The floods destroyed homes, buildings, and infrastructure, causing significant economic losses. Over 200 people were reported dead or missing.",
+    details: "In June 2023, heavy rainfalls in the Yangtze River basin caused massive flooding in several provinces of China, including Hubei, Anhui, and Jiangxi. The floods destroyed homes, buildings, and infrastructure, causing significant economic losses. Over 200 people were reported dead or missing.",
     date: "June 2023",
     lat: 30.7918,
     lng: 111.0044,
@@ -343,8 +385,7 @@ function writeEvents() {
     continent: "Asia",
     country: "Japan",
     event: "Typhoon",
-    details:
-      "In September 2018, Typhoon Jebi, the most powerful typhoon to hit Japan in 25 years, made landfall in western Japan. The typhoon caused widespread flooding and landslides, damaged infrastructure, and resulted in the deaths of at least 17 people.",
+    details: "In September 2018, Typhoon Jebi, the most powerful typhoon to hit Japan in 25 years, made landfall in western Japan. The typhoon caused widespread flooding and landslides, damaged infrastructure, and resulted in the deaths of at least 17 people.",
     date: "September 2018",
     lat: 34.6937,
     lng: 135.5023,
@@ -357,8 +398,7 @@ function writeEvents() {
     continent: "Asia",
     country: "Indonesia",
     event: "Earthquake",
-    details:
-      "In January 2021, a 6.2-magnitude earthquake struck the island of Java in Indonesia, killing at least 105 people and injuring hundreds more. The earthquake damaged thousands of buildings and left thousands of people homeless.",
+    details: "In January 2021, a 6.2-magnitude earthquake struck the island of Java in Indonesia, killing at least 105 people and injuring hundreds more. The earthquake damaged thousands of buildings and left thousands of people homeless.",
     date: "January 2021",
     lat: -7.8166,
     lng: 110.4302,
@@ -371,8 +411,7 @@ function writeEvents() {
     continent: "Africa",
     country: "Egypt",
     event: "Transportation disruption",
-    details:
-      "In March 2021, the container ship Ever Given ran aground in the Suez Canal, blocking the waterway for six days and causing a major disruption to global trade. The incident resulted in significant economic losses and highlighted the vulnerability of global supply chains.",
+    details: "In March 2021, the container ship Ever Given ran aground in the Suez Canal, blocking the waterway for six days and causing a major disruption to global trade. The incident resulted in significant economic losses and highlighted the vulnerability of global supply chains.",
     date: "March 2021",
     lat: 30.0626,
     lng: 31.2497,
@@ -385,8 +424,7 @@ function writeEvents() {
     continent: "South America",
     country: "Brazil",
     event: "Wildfire",
-    details:
-      "In August 2019, large-scale wildfires broke out in the Amazon rainforest, leading to widespread destruction of the ecosystem and threatening the livelihoods of indigenous peoples and local communities. The fires were largely caused by deforestation and illegal land clearing.",
+    details: "In August 2019, large-scale wildfires broke out in the Amazon rainforest, leading to widespread destruction of the ecosystem and threatening the livelihoods of indigenous peoples and local communities. The fires were largely caused by deforestation and illegal land clearing.",
     date: "August 2019",
     lat: -5.019,
     lng: -54.0149,
@@ -421,7 +459,7 @@ function displayCardsDynamically(collection) {
         newcard.querySelector(".card-title").innerHTML = title;
         newcard.querySelector(".card-event").innerHTML = event;
         newcard.querySelector(".card-text").innerHTML = details;
-        newcard.querySelector("a").href ="charity_description.html?docID=" + docID;
+        newcard.querySelector("a").href = "charity_description.html?docID=" + docID;
 
         //check if image is being fetched from storage or from code
         if (imageType === 'code') {
@@ -438,6 +476,17 @@ function displayCardsDynamically(collection) {
       });
     });
 }
+//input param is the name of the collection
 
-
-displayCardsDynamically("charities"); //input param is the name of the collection
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.location.href.indexOf("id") > -1) {
+    console.log("id found");
+    getEventID();
+    getEventContinentAndEvent();
+    filteredCharities = getCharitiesByContinentAndEvent();
+    displayCardsDynamically(filteredCharities);
+  } else {
+    console.log("id not found");
+    displayCardsDynamically("charities");
+  }
+});
