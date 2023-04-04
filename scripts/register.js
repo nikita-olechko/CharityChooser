@@ -28,17 +28,20 @@ async function savePost(event) {
   const continent = document.getElementById("Continent").value;
   const eventType = document.getElementById("Event").value;
   const charityDescription = document.getElementById("charity-description").value;
+  const address = document.getElementById("address").value;
 
   if (charityName && email && continent && eventType && charityDescription && ImageFile) {
     firebase.auth().onAuthStateChanged(async function (user) {
       if (user) {
         const charityData = {
+          Address : address,
           owner: user.uid,
           name: charityName,
           email: email,
           Continent: continent,
           event: eventType,
           details: charityDescription,
+          url: `https://${charityName}.org/`,
           last_updated: firebase.firestore.FieldValue.serverTimestamp()
         };
 
@@ -52,6 +55,7 @@ async function savePost(event) {
 
         alert("Charity information has been submitted!");
         document.getElementById("charity-registration-form").reset();
+        window.location.href="registration_completed.html"
       } else {
         console.log("Error, no user signed in");
       }
