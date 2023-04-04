@@ -40,7 +40,6 @@
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/filter.css">
     <link rel="stylesheet" href="styles/map.css">
-    <link rel="stylesheet" href="styles/footer.css">
     <style>
         .mobile_home {
             color: #009578 !important;
@@ -60,7 +59,9 @@
                 <div id="filter-popup"
                     class="col padding-bottom extra-filter-padding center-filter filter-header-padding"
                     style="display: none;">
+
                     <div class="card_filter">
+
                         <div class="container">
                             <!-- <h6>Filter Box</h6> -->
                             <div class="row padding-top">
@@ -70,7 +71,7 @@
                                     </summary>
                                     <!-- Make this collapsable -->
                                     <div class="col">
-                                        <div class="row">
+                                        <div class="">
                                             <div class="padding-top-bot"><label><input type="checkbox" name="filter"
                                                         id="North America" value="1"> North America</label></div>
                                             <div class="padding-top-bot"><label><input type="checkbox" name="filter"
@@ -78,7 +79,7 @@
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <div class="row">
+                                        <div class="flex justify-content-between">
                                             <div class="padding-top-bot"><label><input type="checkbox" name="filter"
                                                         id="Africa" value="1"> Africa</label></div>
                                             <div class="padding-top-bot"><label><input type="checkbox" name="filter"
@@ -86,7 +87,7 @@
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <div class="row">
+                                        <div class="flex justify-content-between">
                                             <div class="padding-top-bot"><label><input type="checkbox" name="filter"
                                                         id="Asia" value="1"> Asia</label></div>
                                             <div class="padding-top-bot"><label><input type="checkbox" name="filter"
@@ -94,16 +95,16 @@
                                         </div>
                                     </div>
 
-                                </div>
+                            </div>
                             </details>
                             <details>
-                                
-                                                                    <summary>
-                                                                        <h6 class="float-start">Extreme Weather Event</h6>
-                                                                    </summary>
+
+                                <summary>
+                                    <h6 class="float-start">Extreme Weather Event</h6>
+                                </summary>
                                 <div class="row padding-top">
                                     <div class="col">
-                                        <div class="row">
+                                        <div class="flex justify-content-between">
                                             <div class="padding-top-bot"><label><input type="checkbox" name="filter"
                                                         id="Flood" value="1"> Flood</label></div>
                                             <div class="padding-top-bot"><label><input type="checkbox" name="filter"
@@ -111,7 +112,7 @@
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <div class="row">
+                                        <div class="flex justify-content-between">
                                             <div class="padding-top-bot"><label><input type="checkbox" name="filter"
                                                         id="Tornado" value="1"> Tornado</label></div>
                                             <div class="padding-top-bot"><label><input type="checkbox" name="filter"
@@ -119,7 +120,7 @@
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <div class="row">
+                                        <div class="flex justify-content-between">
                                             <div class="padding-top-bot"><label><input type="checkbox" name="filter"
                                                         id="Earthquake" value="1"> Earthquake</label></div>
                                             <div class="padding-top-bot"><label><input type="checkbox" name="filter"
@@ -130,7 +131,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <div class="row">
+                                        <div class="flex justify-content-between">
                                             <div class="padding-top-bot"><label><input type="checkbox" name="filter"
                                                         id="Transportation Disruption" value="1"> Transportation
                                                     Disruption</label></div>
@@ -139,7 +140,7 @@
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <div class="row">
+                                        <div class="flex justify-content-between">
                                             <div class="padding-top-bot"><label><input type="checkbox" name="filter"
                                                         id="Drought" value="1"> Drought</label></div>
                                             <div class="padding-top-bot"><label><input type="checkbox" name="filter"
@@ -147,7 +148,7 @@
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <div class="row">
+                                        <div class="flex justify-content-between">
                                             <div class="padding-top-bot"><label><input type="checkbox" name="filter"
                                                         id="Cyclone" value="1"> Cyclone</label></div>
                                             <div class="padding-top-bot"><label><input type="checkbox" name="filter"
@@ -156,13 +157,17 @@
                                     </div>
                                 </div>
                             </details>
-                            <div class="row">
-                                <div class="col flex-end padding-right"><a href=""><button id="Cancel-Filters"
-                                            class="button btn btn-success">Cancel</button></a></div>
-                                <div class="col flex-start padding-left">
+                            <div class="row flex">
+                                <div class="col flex justify-content-between ">
+                                    <a href="">
+                                        <button id="Cancel-Filters" class="button btn btn-success">Cancel</button>
+                                    </a>
                                     <a href="">
                                         <button id="Apply-Filters" class="button btn btn-success">Apply
                                             Filters</button></a>
+                                </div>
+                                <div class="col flex-start">
+
                                 </div>
                             </div>
                         </div>
@@ -180,7 +185,7 @@
     <!-- welcome message -->
     <div class="container-fluid bg-light text-dark p-5">
         <div class="container bg-light p-5">
-            <h1 class="display-4">Welcome, <span id="name-goes-here">Nasme</span>!</h1>
+            <h1 class="display-4">Welcome, <span id="name-goes-here">Sample Name Person</span>!</h1>
             <hr>
             <p>Let's browse charities.</p>
         </div>
@@ -220,8 +225,10 @@
     <script src="./scripts/firebaseAPI_DTC_16.js"></script>
     <script src="./scripts/main.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/search.js"></script>
+    <!-- <script src="./scripts/search.js"></script> -->
     <script src="./scripts/filtermain.js"></script>
+    <!-- <script src="./scripts/mainCharitiesFromMap.js" defer></script> -->
+
 
 </body>
 
