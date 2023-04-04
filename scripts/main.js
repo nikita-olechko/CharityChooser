@@ -7,7 +7,7 @@ function insertNameFromFirestore() {
       currentUser.get().then((userDoc) => {
         //get the user name
         var userName = userDoc.data().name;
-        console.log(userName);
+        console.log("Hi "+userName+"!!!");
         //$("#name-goes-here").text(userName); //jquery
         document.getElementById("name-goes-here").innerText = userName;
       });
@@ -486,7 +486,7 @@ document.addEventListener("DOMContentLoaded", function () {
     filteredCharities = getCharitiesByContinentAndEvent();
     displayCardsDynamically(filteredCharities);
   } else {
-    console.log("id not found");
+    console.log("No specific ID found - this is a good thing don't worry");
     displayCardsDynamically("charities");
   }
 });

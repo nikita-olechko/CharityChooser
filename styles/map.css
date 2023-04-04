@@ -148,7 +148,7 @@
 
 .flex-end {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
 }
 
 .flex-start {

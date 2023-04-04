@@ -65,6 +65,10 @@
 
 }
 
+.margin-left{
+    margin-left: 50px;
+}
+
 .flex-container {
     display: inline-flex;
     justify-content: end;
@@ -176,4 +180,11 @@
 
 .show {
     display: block;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }

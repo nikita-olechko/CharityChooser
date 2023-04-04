@@ -99,7 +99,7 @@ function ListOfFilteredCards(list_of_filters, allCharities) {
     var EventFilters = filterEvents(list_of_filters);
     for (let i = 0; i < allCharities.length; i++) {
         if (continentFilters.length > 0) {
-            if (continentFilters.includes(allCharities[i].Continent)) {
+            if ((continentFilters.includes(allCharities[i].continent) || (continentFilters.includes(allCharities[i].Continent)))) {
                 if (EventFilters.length > 0 && EventFilters.includes(allCharities[i].event)) {
                     list_of_filtered_charities.push(allCharities[i]);
                 } else if (EventFilters.length == 0) {
