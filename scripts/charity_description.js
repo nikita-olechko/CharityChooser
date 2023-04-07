@@ -4,6 +4,7 @@ function displayCharityInformation() {
   let ID = params.searchParams.get("docID");
   console.log(ID);
 
+  //get the charity information from the database
   db.collection("charities")
     .doc(ID)
     .get()
@@ -20,6 +21,7 @@ function displayCharityInformation() {
       imageFromStorage = charityInfo.image;
       imageType = charityInfo.imageType;
 
+      // populate charity information
       document.getElementById("charityName").innerHTML = charityName;
       document.getElementById("charityDetails").innerHTML = charityDetails;
       document.getElementById("charityAddress").innerHTML = charityAddress;
@@ -27,10 +29,12 @@ function displayCharityInformation() {
       document.getElementById("charityContinent").innerHTML = charityContinent;
       document.getElementById("charityEvent").innerHTML = charityEvent;
       
+      // populate the url
       let anchorTag = document.getElementById("charityURL");
       anchorTag.textContent = charityURL;
       anchorTag.href = charityURL;
       
+      // populate image from storage
       console.log("hi")
       if (imageType === 'code') {
         let imgEvent = document.querySelector(".charity-img");
