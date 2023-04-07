@@ -29,6 +29,7 @@ function populateUserInfo() {
                   donationHistory = userDoc.data().donationHistory; // get the donated charity reference
                   const donationHistoryList = document.getElementById("donation-history");
 
+                    // for each charity reference, get the charity name and create a link to the charity description page
                   donationHistory.forEach(charityDocID => {
                     console.log(charityDocID);
                     const charityLink = document.createElement("a");
@@ -55,6 +56,7 @@ function populateUserInfo() {
   });
 }
 
+// Log out the user and redirect to sign in page
 function logout() {
   firebase.auth().signOut().then(function() {
       window.location.href = "index.html";
@@ -63,6 +65,7 @@ function logout() {
   });
 }
 
+// Enable the user to edit their profile information
 function editUserInfo() {
   document.getElementById("name-input").disabled = false;
   document.getElementById("country-input").disabled = false;
@@ -71,12 +74,14 @@ function editUserInfo() {
   console.log("edit button clicked");
 }
 
+// Save the user's profile information
 function saveUserInfo() {
   var userName = document.getElementById("name-input").value;
   var userCountry = document.getElementById("country-input").value;
   var userPhone = document.getElementById("phone-input").value;
   console.log("save button clicked")
 
+    //update the user document with the new information
   currentUser.update({
       name: userName,
       country: userCountry,
@@ -87,6 +92,7 @@ function saveUserInfo() {
   document.getElementById("phone-input").disabled = true;
 }
 
+// display/close the modal
 const modal = document.querySelector('.modal');
 const openModal = document.querySelector('.open-button');
 const closeModal = document.querySelector('.close-button');
@@ -99,6 +105,4 @@ closeModal.addEventListener('click', () => {
     modal.close();
 });
 
-//call the function to run it 
 populateUserInfo();
-
