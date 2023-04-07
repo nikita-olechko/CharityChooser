@@ -73,7 +73,6 @@ Content of the project folder:
 It has the following subfolders and files:
 ├── .git                        # Folder for git repo
 ├── images                      # Folder for images
-        /blah.jpg
         /background.jpg
         /CHARITY01.jpg
         /CYCLONE01.jpg
@@ -84,6 +83,7 @@ It has the following subfolders and files:
         /HOUSE01.jpg
         /HURRICANE01.jpg
         /logo_bk.png
+        /logo.png
         /SAVE01.jpg
         /SAVE02.jpg
         /SUPPLIES01.jpg
@@ -118,8 +118,17 @@ It has the following subfolders and files:
         /footer.html                 # HTML for footer elements
         /navbar.html                 # HTML for navbar elements
 
-```
+Firebase hosting files:              
+├── .firebase
+        /hosting..cache
+├── .firebaserc
+├── 404.html
+├── firebase.json
+├── firestore.indexes.json
+├── firestore.rules
+├── storage.rules
 
+```
 ## Resources
 
 - In-app icons from FontAwesome (Open Source https://Fontawesome.com)
