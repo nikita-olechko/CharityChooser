@@ -4,7 +4,7 @@
 //---------------------------------------------------
 function loadSkeleton() {
   firebase.auth().onAuthStateChanged(function (user) {
-      console.log($("#navbarPlaceholder").load("./text/nav_after_login.html"));
+      console.log($("#navbarPlaceholder").load("./text/navbar.html"));
       console.log($("#footerPlaceholder").load("./text/footer.html"));
   });
 }
