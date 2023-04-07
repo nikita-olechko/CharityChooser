@@ -57,41 +57,55 @@ Content of the project folder:
 
 ```
  Top level of project folder:
-├── .gitignore               # Git ignore file
-├── index.html               # login HTML file, this is what users see when you come to url
-└── README.md                # woah, you're reading this now!
-└── main.html                # main HTML file, landing page after the user has logged in
+├── .gitignore                  # Git ignore file
+├── index.html                  # login HTML file, this is what users see when you come to url
+└── README.md                   # woah, you're reading this now!
+└── main.html                   # main HTML file, landing page after the user has logged in
 
 It has the following subfolders and files:
-├── .git                     # Folder for git repo
-├── images                   # Folder for images
-    /blah.jpg
-    /background.jpg
-    /CHARITY01.jpg
-    /CYCLONE01.jpg
-    /DONATION01.jpg
-    /FOOD01.jpg
-    /GREEN01.jpg
-    /HANDS01.jpg
-    /HOUSE01.jpg
-    /HURRICANE01.jpg
-    /logo_bk.png
-    /SAVE01.jpg
-    /SAVE02.jpg
-    /SUPPLIES01.jpg
-    /TREE01.jpg
-    /WATER01.jpg
-    /WILDFIRE01.jpg
+├── .git                        # Folder for git repo
+├── images                      # Folder for images
+        /blah.jpg
+        /background.jpg
+        /CHARITY01.jpg
+        /CYCLONE01.jpg
+        /DONATION01.jpg
+        /FOOD01.jpg
+        /GREEN01.jpg
+        /HANDS01.jpg
+        /HOUSE01.jpg
+        /HURRICANE01.jpg
+        /logo_bk.png
+        /SAVE01.jpg
+        /SAVE02.jpg
+        /SUPPLIES01.jpg
+        /TREE01.jpg
+        /WATER01.jpg
+        /WILDFIRE01.jpg
 
-├── scripts                  # Folder for scripts
-    /authentication.js       # firebase authentication, shared across pages
-    /charity_description.js  # JS for charity_description.html
-    /filtermain.js           # JS for main.html
-    /firebaseAPI_DTC_16.js   # JS for firebase API, shared across pages
-    /footer.js               # JS for footer.html
+├── scripts                      # Folder for scripts
+        /authentication.js       # firebase authentication, shared across pages
+        /charity_description.js  # JS for charity_description.html
+        /filtermain.js           # JS for main.html
+        /firebaseAPI_DTC_16.js   # JS for firebase API, shared across pages
+        /footer.js               # JS for footer.html
+        /main.js                 # JS for main.html
+        /map.js                  # JS for map.html
+        /payment_completed.js    # JS for payment_completed.html
+        /payment.js              # JS for payment.html
+        /register.js             # JS for register.html
+        /skeleton.js             # JS for footer and navbar across all pages
+        /user_profile.js         # JS for user_profile.html
 
-├── styles                   # Folder for styles
-    /blah.css                #
+├── styles                       # Folder for styles
+        /charity_description.css # CSS for charity_description.html
+        /filter.css              # CSS for main.html
+        /map.css                 # CSS for map.html
+        /payment.css             # CSS for payment.html
+        /style.css               # CSS for css across all pages
+        /user_profile.css        # CSS for user_profile.html
+
+├── text                         # Folder for
 
 
 
