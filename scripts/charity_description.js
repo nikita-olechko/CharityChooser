@@ -28,6 +28,7 @@ function displayCharityInformation() {
       document.getElementById("charityURL").innerHTML = charityURL;
       document.getElementById("charityContinent").innerHTML = charityContinent;
       document.getElementById("charityEvent").innerHTML = charityEvent;
+      document.getElementById("charityContinent").innerHTML = charityContinent;
       
       // populate the url
       let anchorTag = document.getElementById("charityURL");
@@ -35,18 +36,13 @@ function displayCharityInformation() {
       anchorTag.href = charityURL;
       
       // populate image from storage
-      console.log("hi")
       if (imageType === 'code') {
         let imgEvent = document.querySelector(".charity-img");
         imgEvent.src = "../images/" + charityCode + ".jpg";
       } else {
         let imgEvent = document.querySelector(".charity-img");
-        imgEvent.src = imageFromStorage;
+        imgEvent.src = imageFromStorage; 
       }
-      // let imgEvent = document.querySelector(".charity-img");
-      // imgEvent.src = "../images/" + charityCode + ".jpg";
-      document.getElementById("charityEvent").innerHTML = charityEvent;
-      document.getElementById("charityContinent").innerHTML = charityContinent;
     });
 }
 
