@@ -73,7 +73,6 @@ Content of the project folder:
 It has the following subfolders and files:
 ├── .git                        # Folder for git repo
 ├── images                      # Folder for images
-        /blah.jpg
         /background.jpg
         /CHARITY01.jpg
         /CYCLONE01.jpg
@@ -84,6 +83,7 @@ It has the following subfolders and files:
         /HOUSE01.jpg
         /HURRICANE01.jpg
         /logo_bk.png
+        /logo.png
         /SAVE01.jpg
         /SAVE02.jpg
         /SUPPLIES01.jpg
@@ -128,15 +128,15 @@ It has the following subfolders and files:
 
 ## Acknowledgements
 
-- <i class="fa-solid fa-magnifying-glass"></i>
-- <i class="fa-solid fa-user user" style="font-size: 36px; color: black;"></i>
-- <i class="fa-solid fa-magnifying-glass"></i>
-- <i class="fa-solid fa-ribbon"></i> Donation History <i class="fa-solid fa-ribbon"></i>
-- <i class="fa-solid fa-signature" style="font-size: 25px;"></i>
-- <i class="fa-solid fa-phone" style="font-size: 20px;"></i>
-- <i class="fa-solid fa-flag" style="font-size: 20px;"></i>
-- <i class="fa-solid fa-history">&nbsp&nbsp donation-history</i>
-- <i class="material-icons">account_circle</i>
-- <i class="material-icons">map</i>
-- <i class="material-icons">home</i>
-- <h1 style="font-family: 'Merriweather', serif;">Welcome, <span id="name-goes-here">Sample Name Person</span>!</h1>
+* <i class="fa-solid fa-magnifying-glass"></i>
+* <i class="fa-solid fa-user user" style="font-size: 36px; color: black;"></i>
+* <i class="fa-solid fa-magnifying-glass"></i>
+* <i class="fa-solid fa-ribbon"></i> Donation History <i class="fa-solid fa-ribbon"></i>
+* <i class="fa-solid fa-signature" style="font-size: 25px;"></i>
+* <i class="fa-solid fa-phone" style="font-size: 20px;"></i>
+* <i class="fa-solid fa-flag" style="font-size: 20px;"></i>
+* <i class="fa-solid fa-history">&nbsp&nbsp donation-history</i>
+* <i class="material-icons">account_circle</i>
+* <i class="material-icons">map</i>
+* <i class="material-icons">home</i>
+* <h1 style="font-family: 'Merriweather', serif;">Welcome, <span id="name-goes-here">Sample Name Person</span>!</h1>
