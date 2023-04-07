@@ -478,17 +478,9 @@ function displayCardsDynamically(collection) {
 }
 //input param is the name of the collection
 
+// Displays charity cards when DOM is loaded
 document.addEventListener("DOMContentLoaded", function () {
-  if (window.location.href.indexOf("id") > -1) {
-    console.log("id found");
-    // getEventID();
-    // getEventContinentAndEvent();
-    // filteredCharities = getCharitiesByContinentAndEvent();
-    // displayCardsDynamically(filteredCharities);
-  } else {
-    console.log("No specific ID found - this is a good thing don't worry");
     displayCardsDynamically("charities");
-  }
 });
 
 
