@@ -11,35 +11,71 @@ function getCharityName(id) {
 }
 getCharityName(charityDocID);
 
-const donationButtons = document.querySelectorAll(".donation-amount");
-const donationOtherButton = document.querySelector(".donation-amount-other");
-const donationInput = document.querySelector(".donation-amount-input");
+// const donationButtons = document.querySelectorAll(".donation-amount");
+// const donationOtherButton = document.querySelector(".donation-amount-other");
+// const donationInput = document.querySelector(".donation-amount-input");
 
-// Add event listeners to the donation buttons
-donationButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const amount = button.getAttribute("data-amount");
-    donationInput.value = "$" + amount;
-    donationInput.disabled = true;
+// // Add event listeners to the donation buttons
+// donationButtons.forEach((button) => {
+//   button.addEventListener("click", () => {
+//     const amount = button.getAttribute("data-amount");
+//     donationInput.value = "$" + amount;
+//     donationInput.disabled = true;
+//   });
+// });
+// // Add event listener to the other button
+// donationOtherButton.addEventListener("click", () => {
+//   donationInput.value = "";
+//   donationInput.disabled = false;
+// });
+// // Add event listener to the input field to format value with dollar sign and check for 0 value
+// donationInput.addEventListener("input", () => {
+//   const value = donationInput.value;
+//   if (value.length > 0) {
+//     if (!value.startsWith("$")) {
+//       donationInput.value = "$" + value;
+//     }
+//     if (parseFloat(value) === 0) {
+//       alert("Please enter at least $1.");
+//     }
+//   }
+// });
+
+function initializeDonationForm() {
+  const donationButtons = document.querySelectorAll(".donation-amount");
+  const donationOtherButton = document.querySelector(".donation-amount-other");
+  const donationInput = document.querySelector(".donation-amount-input");
+
+  // Add event listeners to the donation buttons
+  donationButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const amount = button.getAttribute("data-amount");
+      donationInput.value = "$" + amount;
+      donationInput.disabled = true;
+    });
   });
-});
-// Add event listener to the other button
-donationOtherButton.addEventListener("click", () => {
-  donationInput.value = "";
-  donationInput.disabled = false;
-});
-// Add event listener to the input field to format value with dollar sign and check for 0 value
-donationInput.addEventListener("input", () => {
-  const value = donationInput.value;
-  if (value.length > 0) {
-    if (!value.startsWith("$")) {
-      donationInput.value = "$" + value;
+
+  // Add event listener to the other button
+  donationOtherButton.addEventListener("click", () => {
+    donationInput.value = "";
+    donationInput.disabled = false;
+  });
+
+  // Add event listener to the input field to format value with dollar sign and check for 0 value
+  donationInput.addEventListener("input", () => {
+    const value = donationInput.value;
+    if (value.length > 0) {
+      if (!value.startsWith("$")) {
+        donationInput.value = "$" + value;
+      }
+      if (parseFloat(value) === 0) {
+        alert("Please enter at least $1.");
+      }
     }
-    if (parseFloat(value) === 0) {
-      alert("Please enter at least $1.");
-    }
-  }
-});
+  });
+}
+initializeDonationForm();
+
 
 function writePayment() {
   console.log("inside write payment");
@@ -51,9 +87,7 @@ function writePayment() {
   let Country = document.getElementById("country").value;
   let State = document.getElementById("state").value;
   let Postal = document.getElementById("postal").value;
-  let SaveAddress = document.querySelector(
-    'input[name="save_info"]:checked'
-  ).value;
+  // let SaveAddress = document.querySelector('input[name="save_info"]:checked').value;
   let PaymentMethod = document.querySelector(
     'input[name="paymentMethod"]:checked'
   ).value;
@@ -72,7 +106,7 @@ function writePayment() {
     Country,
     State,
     Postal,
-    SaveAddress,
+    // SaveAddress,
     PaymentMethod
   );
 
@@ -113,7 +147,7 @@ function writePayment() {
             country: Country,
             state: State,
             postal: Postal,
-            save_info: SaveAddress,
+            // save_info: SaveAddress,
             paymentMethod: PaymentMethod,
             card_name: CC_name,
             card_number: CC_number,
