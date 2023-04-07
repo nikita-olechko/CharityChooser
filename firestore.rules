@@ -6,4 +6,4 @@ service cloud.firestore {
           request.time < timestamp.date(2023, 8, 6);
     }
   }
-}
+} 
