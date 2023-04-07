@@ -8,78 +8,12 @@ function insertNameFromFirestore() {
         //get the user name
         var userName = userDoc.data().name;
         console.log("Hi "+userName+"!!!");
-        //$("#name-goes-here").text(userName); //jquery
         document.getElementById("name-goes-here").innerText = userName;
       });
     }
   });
 }
 insertNameFromFirestore();
-
-
-
-
-// function getEventID() {
-//   console.log("id found");
-//   var url = window.location.href;
-//   var eventID = url.split("id=")[1];
-//   console.log(eventID);
-//   return eventID;
-// }
-
-
-// var allCharitiesPromise;
-// var allEventsPromise;
-
-// const eventsCollection = db.collection('events');
-// const charitiesCollection = db.collection('charities');
-
-// function getListCharities(charitiesCollection) {
-//   charitiesCollection.get().then((querySnapshot) => {
-//     var documentsArray = [];
-//     querySnapshot.forEach((doc) => {
-//       documentsArray.push(doc.data());
-//     });
-//     allCharitiesPromise = documentsArray;
-//   });
-// }
-
-// function getListEvents() {
-//   eventsCollection.get().then((querySnapshot) => {
-//     var documentsArray = [];
-//     querySnapshot.forEach((doc) => {
-//       documentsArray.push(doc.data());
-//     });
-//     allEventsPromise = documentsArray;
-//   });
-// }
-
-// getListCharities(charitiesCollection);
-// getListEvents();
-
-// function getEventContinentAndEvent() {
-//   for (var i = 0; i < eventsCollection.length; i++) {
-//     if (getEventID() == eventsCollection[i].id) {
-//       const eventContinent = eventsCollection[i].continent;
-//       const eventEvent = eventsCollection[i].event;
-//     }
-//   }
-// }
-
-
-// function getCharitiesByContinentAndEvent() {
-//   var charitiesByContinentAndEvent = [];
-//   for (var i = 0; i < allCharitiesPromise.length; i++) {
-//     if (
-//       allCharitiesPromise[i].Continent == eventContinent &&
-//       allCharitiesPromise[i].event == eventEvent
-//     ) {
-//       charitiesByContinentAndEvent.push(allCharitiesPromise[i]);
-//     }
-//   }
-//   return charitiesByContinentAndEvent;
-// }
-
 
 function writeCharities() {
   //define a variable for the collection you want to create in Firestore to populate data
@@ -431,8 +365,8 @@ function writeEvents() {
     last_updated: firebase.firestore.FieldValue.serverTimestamp(),
   });
 }
-
 // writeEvents();
+
 //------------------------------------------------------------------------------
 // Input parameter is a string representing the collection we are reading from
 //------------------------------------------------------------------------------
@@ -481,10 +415,6 @@ function displayCardsDynamically(collection) {
 document.addEventListener("DOMContentLoaded", function () {
   if (window.location.href.indexOf("id") > -1) {
     console.log("id found");
-    // getEventID();
-    // getEventContinentAndEvent();
-    // filteredCharities = getCharitiesByContinentAndEvent();
-    // displayCardsDynamically(filteredCharities);
   } else {
     console.log("No specific ID found - this is a good thing don't worry");
     displayCardsDynamically("charities");
