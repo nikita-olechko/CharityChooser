@@ -124,7 +124,14 @@ function writePayment() {
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           })
           .then(() => {
-            window.location.href = "payment_completed.html";
+            currentUser
+              .update({
+                donationHistory:
+                  firebase.firestore.FieldValue.arrayUnion(charityDocID),
+              })
+              .then(() => {
+                window.location.href = "payment_completed.html";
+              });
           });
       });
     } else {
