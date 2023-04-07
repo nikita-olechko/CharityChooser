@@ -49,7 +49,7 @@
   <!-- top nav bar-->
   <nav id="navbarPlaceholder"></nav>
 
-  <!-- user profile -->
+  <!-- user profile header portion -->
   <div class="container border" style="margin-top: 10rem;">
     <div class="row justify-content-center">
       <div class="col" style="padding: 1rem; background-color: rgb(27, 158, 75);
@@ -58,7 +58,7 @@
       </div>
     </div>
 
-    <!-- modal -->
+    <!-- modal with donation history-->
     <dialog class="modal" id="modal">
       <h2><i class="fa-solid fa-ribbon"></i> Donation History <i class="fa-solid fa-ribbon"></i></h2>
       <div id="donation-history"></div>
@@ -66,11 +66,13 @@
     </dialog>
     <!-- modal -->
 
+    <!-- user profile inner container -->
     <div class="row justify-content-center">
       <div class="col">
         <h3 class="d-flex justify-content-center"></h3>
       </div>
 
+      <!-- edit profile and save buttons -->
       <div class="row">
         <div class="col col-auto" style="padding: 2rem 0rem 1rem 0rem; margin-left: 15%;">
           <button class="btn btn-outline-light" style="border: solid 1px black; background-color: rgb(27, 158, 75);"
@@ -83,6 +85,7 @@
         </div>
       </div>
 
+      <!-- username input field -->
       <fieldset class="mb-3" id="input-fields" style="margin-left: 10%;">
         <div class="row">
           <h6>Username</h6>
@@ -94,6 +97,7 @@
           </div>
         </div>
 
+        <!-- phone number input field -->
         <div class="row">
           <h6>Phone number</h6>
           <div class="col col-auto d-flex" style="margin-bottom: 35px;">
@@ -105,6 +109,7 @@
           </div>
         </div>
 
+        <!-- country input field -->
         <div class="row">
           <h6>Country</h6>
           <div class="col col-auto d-flex" style="margin-bottom: 35px">
@@ -115,6 +120,7 @@
         </div>
     </div>
 
+    <!-- donation history with view list button -->
     <div class="row">
       <div class="col col-auto d-flex" style="margin-left: 25px;">
         <i class="fa-solid fa-history">&nbsp&nbsp donation-history</i>
@@ -122,6 +128,7 @@
       </div>
     </div>
 
+    <!-- logout button -->
     <div class="row justify-content-center">
       <div class="col col-auto" style="padding: 0.5rem; margin-top: 20px;">
         <button id="logout" class="btn btn-outline-light"

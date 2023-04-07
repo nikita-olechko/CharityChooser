@@ -19,66 +19,66 @@ insertNameFromFirestore();
 
 
 
-function getEventID() {
-  console.log("id found");
-  var url = window.location.href;
-  var eventID = url.split("id=")[1];
-  console.log(eventID);
-  return eventID;
-}
+// function getEventID() {
+//   console.log("id found");
+//   var url = window.location.href;
+//   var eventID = url.split("id=")[1];
+//   console.log(eventID);
+//   return eventID;
+// }
 
 
-var allCharitiesPromise;
-var allEventsPromise;
+// var allCharitiesPromise;
+// var allEventsPromise;
 
-const eventsCollection = db.collection('events');
-const charitiesCollection = db.collection('charities');
+// const eventsCollection = db.collection('events');
+// const charitiesCollection = db.collection('charities');
 
-function getListCharities(charitiesCollection) {
-  charitiesCollection.get().then((querySnapshot) => {
-    var documentsArray = [];
-    querySnapshot.forEach((doc) => {
-      documentsArray.push(doc.data());
-    });
-    allCharitiesPromise = documentsArray;
-  });
-}
+// function getListCharities(charitiesCollection) {
+//   charitiesCollection.get().then((querySnapshot) => {
+//     var documentsArray = [];
+//     querySnapshot.forEach((doc) => {
+//       documentsArray.push(doc.data());
+//     });
+//     allCharitiesPromise = documentsArray;
+//   });
+// }
 
-function getListEvents() {
-  eventsCollection.get().then((querySnapshot) => {
-    var documentsArray = [];
-    querySnapshot.forEach((doc) => {
-      documentsArray.push(doc.data());
-    });
-    allEventsPromise = documentsArray;
-  });
-}
+// function getListEvents() {
+//   eventsCollection.get().then((querySnapshot) => {
+//     var documentsArray = [];
+//     querySnapshot.forEach((doc) => {
+//       documentsArray.push(doc.data());
+//     });
+//     allEventsPromise = documentsArray;
+//   });
+// }
 
-getListCharities(charitiesCollection);
-getListEvents();
+// getListCharities(charitiesCollection);
+// getListEvents();
 
-function getEventContinentAndEvent() {
-  for (var i = 0; i < eventsCollection.length; i++) {
-    if (getEventID() == eventsCollection[i].id) {
-      const eventContinent = eventsCollection[i].continent;
-      const eventEvent = eventsCollection[i].event;
-    }
-  }
-}
+// function getEventContinentAndEvent() {
+//   for (var i = 0; i < eventsCollection.length; i++) {
+//     if (getEventID() == eventsCollection[i].id) {
+//       const eventContinent = eventsCollection[i].continent;
+//       const eventEvent = eventsCollection[i].event;
+//     }
+//   }
+// }
 
 
-function getCharitiesByContinentAndEvent() {
-  var charitiesByContinentAndEvent = [];
-  for (var i = 0; i < allCharitiesPromise.length; i++) {
-    if (
-      allCharitiesPromise[i].Continent == eventContinent &&
-      allCharitiesPromise[i].event == eventEvent
-    ) {
-      charitiesByContinentAndEvent.push(allCharitiesPromise[i]);
-    }
-  }
-  return charitiesByContinentAndEvent;
-}
+// function getCharitiesByContinentAndEvent() {
+//   var charitiesByContinentAndEvent = [];
+//   for (var i = 0; i < allCharitiesPromise.length; i++) {
+//     if (
+//       allCharitiesPromise[i].Continent == eventContinent &&
+//       allCharitiesPromise[i].event == eventEvent
+//     ) {
+//       charitiesByContinentAndEvent.push(allCharitiesPromise[i]);
+//     }
+//   }
+//   return charitiesByContinentAndEvent;
+// }
 
 
 function writeCharities() {
@@ -481,12 +481,14 @@ function displayCardsDynamically(collection) {
 document.addEventListener("DOMContentLoaded", function () {
   if (window.location.href.indexOf("id") > -1) {
     console.log("id found");
-    getEventID();
-    getEventContinentAndEvent();
-    filteredCharities = getCharitiesByContinentAndEvent();
-    displayCardsDynamically(filteredCharities);
+    // getEventID();
+    // getEventContinentAndEvent();
+    // filteredCharities = getCharitiesByContinentAndEvent();
+    // displayCardsDynamically(filteredCharities);
   } else {
     console.log("No specific ID found - this is a good thing don't worry");
     displayCardsDynamically("charities");
   }
 });
+
+

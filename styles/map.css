@@ -155,3 +155,7 @@
     display: flex;
     justify-content: start;
 }
+
+.no-display{
+    display: none;
+}
