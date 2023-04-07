@@ -1,6 +1,4 @@
 var charityDocID = localStorage.getItem("charityDocID"); //visible to all functions on this page
-
-// Get the charity name from the charities collection
 function getCharityName(id) {
   db.collection("charities")
     .doc(id)
@@ -10,15 +8,14 @@ function getCharityName(id) {
       document.getElementById("charityName").innerHTML = charityName;
     });
 }
-getCharityName(charityDocID);
 
+getCharityName(charityDocID);
 
 // initialize the donation form
 function setupDonationAmountButtons() {
   const donationButtons = document.querySelectorAll(".donation-amount");
   const donationOtherButton = document.querySelector(".donation-amount-other");
   const donationInput = document.querySelector(".donation-amount-input");
-
   // Add event listeners to the donation buttons
   donationButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -49,7 +46,6 @@ function setupDonationAmountButtons() {
 }
 setupDonationAmountButtons();
 
-// Write payment information to the database
 function writePayment() {
   console.log("inside write payment");
   let Firstname = document.getElementById("firstName").value;
@@ -60,7 +56,9 @@ function writePayment() {
   let Country = document.getElementById("country").value;
   let State = document.getElementById("state").value;
   let Postal = document.getElementById("postal").value;
-  let SaveAddress = document.querySelector('input[name="save_info"]:checked').value;
+  let SaveAddress = document.querySelector(
+    'input[name="save_info"]:checked'
+  ).value;
   let PaymentMethod = document.querySelector(
     'input[name="paymentMethod"]:checked'
   ).value;
@@ -68,13 +66,19 @@ function writePayment() {
   let CC_number = document.getElementById("card_number").value;
   let CC_cvv = document.getElementById("card_cvv").value;
   let CC_expiration = document.getElementById("card_expiration").value;
-  let donationAmount = document.getElementById("donationAmount").value;
 
-  // Log the values to the console
   console.log(
-    Firstname, Lastname, Email, Address, Address2, Country, State, Postal, PaymentMethod
+    Firstname,
+    Lastname,
+    Email,
+    Address,
+    Address2,
+    Country,
+    State,
+    Postal,
+    SaveAddress,
+    PaymentMethod
   );
-
   // Check if required fields are empty
   if (
     Firstname === "" ||
@@ -91,13 +95,14 @@ function writePayment() {
     alert("Please fill in all required information.");
     return;
   }
-
   firebase.auth().onAuthStateChanged((user) => {
+    // check who's logged in. so it is a boolean
     if (user) {
       var currentUser = db.collection("users").doc(user.uid);
       var userID = user.uid;
-      //get the document for current user
+      //get the document for current user.
       currentUser.get().then((userDoc) => {
+        // var userEmail = userDoc.data().email;
         db.collection("payment")
           .add({
             charityDocID: charityDocID,
@@ -116,16 +121,10 @@ function writePayment() {
             card_number: CC_number,
             card_cvv: CC_cvv,
             card_expiration: CC_expiration,
-            donation_amount: donationAmount,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
           })
           .then(() => {
-            currentUser.update({
-              donationHistory: firebase.firestore.FieldValue.arrayUnion(charityDocID)
-            })
-            .then(() => {
             window.location.href = "payment_completed.html";
-            })
           });
       });
     } else {
