@@ -124,7 +124,6 @@ footer {
   }
 }
 
-
 /* for mobile footer */
 .nav {
   position: fixed;
@@ -169,9 +168,6 @@ footer {
 
   }
 
-
-
-
 /* large screen */
 @media screen and (min-width: 800px) {
     .mobile, .logo {
@@ -186,7 +182,6 @@ footer {
 .extra-filter-padding{
   padding-top: 100px;
   margin-top: 50px;
-  /* padding-right: 30px; */
   margin-right: 30px;
 }
 
