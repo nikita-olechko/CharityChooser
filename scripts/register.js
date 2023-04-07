@@ -1,5 +1,6 @@
 var ImageFile;
 
+// listen for image file selection
 function listenFileSelect() {
   var fileInput = document.getElementById("mypic-input");
   fileInput.addEventListener('change', function (e) {
@@ -8,6 +9,7 @@ function listenFileSelect() {
 }
 listenFileSelect();
 
+// upload image to Firebase Storage and return the image URL
 async function uploadImage(docId) {
   if (ImageFile) {
     const fileExtension = ImageFile.name.split(".").pop(); // get file extension
@@ -21,6 +23,7 @@ async function uploadImage(docId) {
   return null;
 }
 
+// reference values from the registration form
 async function savePost(event) {
   event.preventDefault();
   const charityName = document.getElementById("charity-name").value;
@@ -45,14 +48,12 @@ async function savePost(event) {
           last_updated: firebase.firestore.FieldValue.serverTimestamp()
         };
 
+        // add charity data to charity collection
         const docRef = await firebase.firestore().collection("charities").add(charityData);
-        // console.log("Test if function is being called")
-        // console.log(ImageFile)
         const imageURL = await uploadImage(docRef.id);
-        // console.log("Test if function is being called 2")
         await firebase.firestore().collection("charities").doc(docRef.id).update({ image: imageURL });
-        // console.log("Image URL added to Firestore document", imageURL);
 
+        // redirect to registration completed page and reset the form
         alert("Charity information has been submitted!");
         document.getElementById("charity-registration-form").reset();
         window.location.href="registration_completed.html"
