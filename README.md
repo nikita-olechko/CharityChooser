@@ -95,7 +95,7 @@ It has the following subfolders and files:
         /authentication.js           # firebase authentication, shared across pages
         /charity_description.js      # JS for charity_description.html
         /filtermain.js               # JS for main.html
-        /firebaseAPI_DTC_16.js       # JS for firebase API, shared across pages
+        /firebaseAPI_DTC_16.js       # JS for firebase API, stored in .gitignore for security purposes
         /footer.js                   # JS for footer.html
         /main.js                     # JS for main.html
         /map.js                      # JS for map.html
@@ -121,12 +121,13 @@ It has the following subfolders and files:
 Firebase hosting files:              
 ├── .firebase
         /hosting..cache
-├── .firebaserc
-├── 404.html
-├── firebase.json
-├── firestore.indexes.json
-├── firestore.rules
-├── storage.rules
+├── database
+        /.firebaserc
+        /404.html
+        /firebase.json
+        /firestore.indexes.json
+        /firestore.rules
+        /storage.rules
 
 ```
 ## Resources
