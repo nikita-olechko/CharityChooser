@@ -30,10 +30,9 @@ List technologies (with version numbers), API's, icons, fonts, images, media or 
 State what a user needs to do when they come to your project. How do others start using your code or application?
 Here are the steps ...
 
-- Create a project on Firebase
-- Copy and paste code for Firebase initialization under project settings
-- Ensure timestamp.date under rules in Firestore Database is not expired
-- Enjoy!
+- Sign in to the application
+- Freely browse, filter charities, view charities on the map, edit profile, make donations, view donation history
+- Enjoy exploring! 
 
 ## 5. Known Bugs and Limitations
 
